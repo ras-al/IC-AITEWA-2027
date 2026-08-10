@@ -25,13 +25,15 @@ export default function CallForPapersPage() {
                 </p>
               </div>
 
+              {/* Format & Length hidden for now */}
+
               <div className="border-2 border-foreground/20 p-8">
-                <h3 className="font-serif text-2xl font-bold mb-6 text-foreground">Format & Length</h3>
+                <h3 className="font-serif text-2xl font-bold mb-6 text-foreground">Submission Requirements</h3>
                 <ul className="font-sans text-lg space-y-4 text-foreground/80">
-                  <li className="flex items-start gap-3"><span className="text-primary font-bold">▪</span> <strong>Length:</strong> Maximum 5,000 words or 10 pages including figures, tables, appendices, and references.</li>
+                  <li className="flex items-start gap-3"><span className="text-primary font-bold">▪</span> <strong>Length:</strong> Maximum 2000 words or Maximum 6 pages including figures, tables, appendices, and references.</li>
                   <li className="flex items-start gap-3"><span className="text-primary font-bold">▪</span> <strong>File:</strong> Final PDF size must be ≤ 3 MB.</li>
                   <li className="flex items-start gap-3"><span className="text-primary font-bold">▪</span> <strong>Structure:</strong> Standard IMRaD (Introduction, Methods, Results, Discussion).</li>
-                  <li className="flex items-start gap-3"><span className="text-primary font-bold">▪</span> <strong>Abstracts:</strong> ≤ 300 words, following an "hourglass" structure.</li>
+                  <li className="flex items-start gap-3"><span className="text-primary font-bold">▪</span> <strong>Abstracts:</strong> ≤ 300 words, following an &quot;hourglass&quot; structure.</li>
                 </ul>
               </div>
 
@@ -44,40 +46,22 @@ export default function CallForPapersPage() {
             </div>
           </section>
 
-          <section>
-            <SectionHeading>Presentation Formats</SectionHeading>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="border-t-4 border-foreground pt-6">
-                <h3 className="font-serif text-2xl font-bold mb-4">Oral Presentation</h3>
-                <p className="font-sans text-foreground/80 mb-6 min-h-[60px]">Assigned to a parallel technical session based on the track.</p>
-                <div className="bg-foreground/5 p-4 space-y-2 font-sans text-sm font-bold">
-                  <div className="flex justify-between border-b border-foreground/10 pb-2">
-                    <span className="text-foreground/60 uppercase tracking-wider">Duration</span>
-                    <span>15 minutes</span>
-                  </div>
-                  <div className="flex justify-between pt-2">
-                    <span className="text-foreground/60 uppercase tracking-wider">Q&A</span>
-                    <span>5 minutes</span>
-                  </div>
+              <div className="mt-8 border-2 border-primary/20 bg-surface p-8 shadow-[8px_8px_0_0_#C1502E]">
+                <h3 className="font-serif text-2xl font-bold mb-6 text-foreground">Download Templates</h3>
+                <div className="flex flex-col gap-4">
+                  <a href="#" className="inline-flex items-center gap-2 font-sans font-bold text-sm uppercase tracking-widest text-primary hover:text-primary-hover border-b border-primary/20 pb-2">
+                    Manuscript Template (Word)
+                  </a>
+                  <a href="#" className="inline-flex items-center gap-2 font-sans font-bold text-sm uppercase tracking-widest text-primary hover:text-primary-hover border-b border-primary/20 pb-2">
+                    Presentation Template (PPTX)
+                  </a>
+                  <a href="#" className="inline-flex items-center gap-2 font-sans font-bold text-sm uppercase tracking-widest text-primary hover:text-primary-hover pb-2">
+                    Poster Template (PDF)
+                  </a>
                 </div>
               </div>
 
-              <div className="border-t-4 border-primary pt-6">
-                <h3 className="font-serif text-2xl font-bold mb-4">Poster / WIP</h3>
-                <p className="font-sans text-foreground/80 mb-6 min-h-[60px]">For emerging research, project proposals, and early-stage prototypes.</p>
-                <div className="bg-foreground/5 p-4 space-y-2 font-sans text-sm font-bold">
-                  <div className="flex justify-between border-b border-foreground/10 pb-2">
-                    <span className="text-foreground/60 uppercase tracking-wider">Word Count</span>
-                    <span>Max 2,000 words</span>
-                  </div>
-                  <div className="flex justify-between pt-2">
-                    <span className="text-foreground/60 uppercase tracking-wider">Specs</span>
-                    <span>Portrait A1</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          {/* Presentation Formats hidden for now */}
         </div>
 
         {/* Right Column: Important Dates Timeline */}

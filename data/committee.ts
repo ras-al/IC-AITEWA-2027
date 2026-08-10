@@ -56,12 +56,12 @@ export const committee = {
     },
   ],
   advisoryCommittee: [
-    'Sophia University, Japan',
-    'The University of Newcastle, Australia',
-    'IIT Delhi',
-    'IIT Roorkee',
-    'NIT Calicut',
-    'IISc Bengaluru',
+    { name: 'Sophia University, Japan', logo: '/sophia.png' },
+    { name: 'The University of Newcastle, Australia', logo: '/newcastle.png' },
+    { name: 'IIT Delhi', logo: '/iit-delhi.png' },
+    { name: 'IIT Roorkee', logo: '/iit-roorkee.png' },
+    { name: 'NIT Calicut', logo: '/nit-calicut.png' },
+    { name: 'IISc Bengaluru', logo: '/iisc.png' },
   ],
   participatingInstitutes: [
     'National Institute of Technology Calicut',

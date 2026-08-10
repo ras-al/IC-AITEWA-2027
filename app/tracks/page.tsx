@@ -24,10 +24,18 @@ export default function TracksPage() {
             </div>
             <div className="md:col-span-9 lg:col-span-9">
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">{track.focus}</h2>
-              <h4 className="font-sans text-sm font-bold tracking-widest uppercase text-foreground/50 mb-4 border-b-2 border-foreground/10 pb-2">Detailed Scope</h4>
-              <p className="font-sans text-lg md:text-xl leading-relaxed text-foreground/90 bg-surface border-l-4 border-primary pl-6 py-2">
-                {track.scope}
-              </p>
+              <details className="group">
+                <summary className="font-sans text-sm font-bold tracking-widest uppercase text-foreground/50 mb-4 border-b-2 border-foreground/10 pb-2 cursor-pointer hover:text-primary transition-colors">
+                  Detailed Scope <span className="inline-block transition-transform group-open:rotate-180">▼</span>
+                </summary>
+                <ul className="font-sans text-lg md:text-xl leading-relaxed text-foreground/90 bg-surface border-l-4 border-primary pl-6 py-2 space-y-2 mt-4">
+                  {track.scope.split(', ').map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-primary">•</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </details>
             </div>
           </div>
         ))}

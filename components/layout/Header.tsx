@@ -17,38 +17,42 @@ export const Header = () => {
     { name: 'Committee', href: '/committee' },
     { name: 'Registration', href: '/registration' },
     { name: 'Venue', href: '/venue' },
+    { name: 'Accommodation', href: '/accommodation' },
     { name: 'Contact', href: '/contact' },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full bg-surface border-b-2 border-foreground">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20 gap-8">
-          <div className="flex-shrink-0 flex items-center">
+      <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="flex justify-between items-center h-20 relative">
+          <div className="flex-shrink-0 flex items-center z-10">
             <Link href="/" className="flex items-center gap-3">
               <img src="/tkm-favicon.png" alt="TKM Logo" className="h-10 w-auto object-contain" />
               <span className="font-serif font-bold text-xl tracking-tight hidden sm:block">
-                IC-AITEWA <span className="text-primary">2027</span>
+                IC-AITEWA <span className="text-primary ml-1">2027</span>
               </span>
             </Link>
           </div>
           
-          <nav className="hidden xl:flex space-x-6 items-center">
+          <nav className="hidden xl:flex gap-3 xl:gap-5 items-center absolute left-1/2 -translate-x-1/2 w-max z-0">
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
                 href={link.href}
-                className={`font-sans text-sm font-semibold tracking-wide uppercase transition-colors hover:text-primary ${pathname === link.href ? 'text-primary' : 'text-foreground'}`}
+                className={`font-sans text-[11px] xl:text-xs font-bold tracking-wider uppercase whitespace-nowrap transition-colors hover:text-primary ${pathname === link.href ? 'text-primary' : 'text-foreground'}`}
               >
                 {link.name}
               </Link>
             ))}
-            <CTAButton href="/call-for-papers" className="px-4 py-2 text-xs">
-              Submit Abstract
-            </CTAButton>
           </nav>
 
-          <div className="flex xl:hidden items-center">
+          <div className="hidden xl:flex items-center z-10">
+            <CTAButton href="/call-for-papers" className="px-5 py-2 text-[10px] xl:text-xs">
+              Submit Abstract
+            </CTAButton>
+          </div>
+
+          <div className="flex xl:hidden items-center z-10">
             <button 
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground focus:outline-none p-2"

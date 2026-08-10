@@ -13,13 +13,13 @@ export default function Home() {
       <section className="bg-surface border-b-2 border-foreground pt-20 pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <p className="font-sans font-bold text-sm tracking-widest uppercase text-primary mb-6">
-            18–20 March 2027 • Kollam, Kerala, India
+            18–20 March 2027 • Department of Mechanical Engineering, TKMCE
           </p>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
-            Advancing Sustainable Energy, Water Security and Smart Automation through Intelligent Technologies
+            International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027)
           </h1>
           <p className="font-sans text-xl leading-relaxed text-foreground/80 mb-10 max-w-3xl mx-auto">
-            International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027)
+            Advancing Sustainable Energy, Water Security and Smart Automation through Intelligent Technologies
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <CTAButton href="/call-for-papers">Submit Abstract</CTAButton>
@@ -34,7 +34,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8">
             <SectionHeading>Conference Overview</SectionHeading>
-            <div className="prose prose-lg prose-neutral max-w-none font-sans text-foreground/90">
+            <div className="prose prose-lg prose-neutral max-w-none font-sans text-foreground/90 text-justify">
               <p>
                 The convergence of artificial intelligence, intelligent systems, cyber-physical automation, and digital manufacturing is reshaping industry, energy grids, and water infrastructure. 
               </p>
@@ -75,14 +75,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Keynote Speakers Section (Hidden for now)
+      <section className="bg-surface py-20 px-4 sm:px-6 lg:px-8 border-t-2 border-foreground/10">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeading>Keynote Speakers / Delegates</SectionHeading>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mt-12">
+            {[1, 2, 3].map((item) => (
+              <div key={item} className="flex flex-col border-2 border-foreground bg-surface p-8 shadow-[8px_8px_0_0_#1C1712] h-full items-center text-center hover:-translate-y-1 transition-transform duration-300">
+                <div className="w-32 h-32 bg-foreground/10 rounded-full mb-6 border-4 border-surface shadow-md overflow-hidden">
+                  <div className="w-full h-full bg-primary/20 flex items-center justify-center">
+                    <span className="font-serif text-2xl font-bold text-primary">TBA</span>
+                  </div>
+                </div>
+                <h3 className="font-serif text-2xl font-bold leading-snug text-foreground mb-2">To Be Announced</h3>
+                <p className="font-sans text-sm font-bold uppercase tracking-widest text-primary mb-4">Keynote Speaker</p>
+                <p className="font-sans text-base text-foreground/80">Details regarding the speaker's organization and session topic will be updated soon.</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      */}
+
       {/* Tracks Section */}
       <section className="bg-surface py-24 px-4 sm:px-6 lg:px-8 border-t-2 border-foreground/10">
         <div className="max-w-7xl mx-auto">
           <SectionHeading>Technical Tracks</SectionHeading>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mt-12">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12 mt-12">
             {tracks.map((track) => (
-              <div key={track.code} className="flex flex-col border-2 border-foreground bg-surface p-8 shadow-[8px_8px_0_0_#1C1712] hover:-translate-y-1 transition-transform duration-300">
+              <div key={track.code} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)] flex flex-col items-center text-center border-2 border-foreground bg-surface p-8 shadow-[8px_8px_0_0_#1C1712] hover:-translate-y-1 transition-transform duration-300">
                 <div className="mb-6">
                   <span className="inline-block bg-primary text-surface font-sans text-sm font-bold px-3 py-1 uppercase tracking-widest">
                     {track.code}
@@ -99,6 +122,15 @@ export default function Home() {
             </CTAButton>
           </div>
         </div>
+      </section>
+
+      {/* Brochure Section */}
+      <section className="bg-surface py-24 px-4 sm:px-6 lg:px-8 border-t-2 border-foreground/10 text-center">
+        <h3 className="font-serif text-3xl font-bold mb-6">Download Conference Brochure</h3>
+        <p className="font-sans text-lg text-foreground/80 mb-8 max-w-2xl mx-auto">Get all the details about the conference themes, important dates, and submission guidelines in our comprehensive brochure.</p>
+        <CTAButton href="/brochure.pdf" variant="outline" className="border-foreground hover:bg-foreground hover:text-surface px-8 py-3">
+          Download Brochure
+        </CTAButton>
       </section>
     </>
   );

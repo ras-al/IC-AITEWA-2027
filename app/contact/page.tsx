@@ -38,12 +38,13 @@ export default function ContactPage() {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form action="mailto:organizer@tkmce.ac.in" method="POST" encType="text/plain" className="space-y-6">
               <div>
                 <label htmlFor="name" className="block font-sans text-sm font-bold uppercase tracking-wider mb-2">Full Name</label>
                 <input 
                   type="text" 
                   id="name" 
+                  name="name"
                   required
                   className="w-full bg-surface border-2 border-foreground/20 px-4 py-3 font-sans focus:border-primary focus:outline-none transition-colors"
                   placeholder="Prof. Jane Doe"
@@ -55,6 +56,7 @@ export default function ContactPage() {
                 <input 
                   type="email" 
                   id="email" 
+                  name="email"
                   required
                   className="w-full bg-surface border-2 border-foreground/20 px-4 py-3 font-sans focus:border-primary focus:outline-none transition-colors"
                   placeholder="jane.doe@university.edu"
@@ -65,6 +67,7 @@ export default function ContactPage() {
                 <label htmlFor="message" className="block font-sans text-sm font-bold uppercase tracking-wider mb-2">Message</label>
                 <textarea 
                   id="message" 
+                  name="message"
                   required
                   rows={5}
                   className="w-full bg-surface border-2 border-foreground/20 px-4 py-3 font-sans focus:border-primary focus:outline-none transition-colors"
@@ -74,10 +77,9 @@ export default function ContactPage() {
 
               <button 
                 type="submit" 
-                disabled={status === "submitting"}
-                className="inline-flex items-center justify-center px-8 py-4 font-sans font-bold text-sm tracking-widest uppercase transition-colors duration-200 border-2 bg-foreground border-foreground text-surface hover:bg-foreground/80 hover:border-foreground/80 disabled:opacity-50"
+                className="inline-flex items-center justify-center px-8 py-4 font-sans font-bold text-sm tracking-widest uppercase transition-colors duration-200 border-2 bg-foreground border-foreground text-surface hover:bg-foreground/80 hover:border-foreground/80"
               >
-                {status === "submitting" ? "Sending..." : "Send Message"}
+                Send Message
               </button>
             </form>
           )}
@@ -110,6 +112,12 @@ export default function ContactPage() {
                 <p className="font-sans font-bold text-sm tracking-widest uppercase text-primary mb-1">Registration & Papers</p>
                 <p className="font-serif font-bold text-lg">Prof. Jesna Mohamed</p>
                 <p className="font-sans text-sm text-foreground/80">Organizing Secretary</p>
+              </div>
+
+              <div>
+                <p className="font-sans font-bold text-sm tracking-widest uppercase text-primary mb-1">Accommodation & Travel</p>
+                <p className="font-serif font-bold text-lg">Prof. Firos</p>
+                <p className="font-sans text-sm text-foreground/80">Joint Secretary</p>
               </div>
             </div>
           </div>

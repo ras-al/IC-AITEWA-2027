@@ -8,7 +8,7 @@ type CTAButtonProps = {
 };
 
 export const CTAButton: React.FC<CTAButtonProps> = ({ href, children, variant = 'primary', className = '' }) => {
-  const baseClasses = "inline-flex items-center justify-center px-6 py-3 font-sans font-bold text-sm tracking-widest uppercase transition-colors duration-200 border-2";
+  const baseClasses = "inline-flex items-center justify-center px-6 py-3 font-sans font-bold text-sm tracking-widest uppercase whitespace-nowrap transition-colors duration-200 border-2";
   
   const variants = {
     primary: "bg-primary border-primary text-surface hover:bg-primary-hover hover:border-primary-hover",

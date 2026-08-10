@@ -9,9 +9,11 @@ export default function VenuePage() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center">Venue & Travel</h1>
-      <div className="flex justify-center mb-20">
+      <div className="flex justify-center mb-20 text-center">
         <p className="inline-block bg-primary text-surface font-sans text-lg md:text-xl font-bold px-8 py-4 shadow-[8px_8px_0_0_#1C1712]">
-          TKM College of Engineering, Karicode, Kollam, Kerala, India
+          TKM College of Engineering<br/>
+          Karicode, Kollam - 691005<br/>
+          Kerala, India
         </p>
       </div>
 
@@ -24,10 +26,10 @@ export default function VenuePage() {
             <div className="bg-surface border-2 border-foreground p-8">
               <div className="flex items-center gap-4 mb-4">
                 <span className="bg-foreground text-surface px-3 py-1 font-sans text-sm font-bold tracking-widest uppercase">Air</span>
-                <h3 className="font-serif text-2xl font-bold">Trivandrum Int. Airport (TRV)</h3>
+                <h3 className="font-serif text-2xl font-bold">Trivandrum (TRV) & Cochin (COK)</h3>
               </div>
               <p className="font-sans text-lg text-foreground/80 leading-relaxed">
-                Located approx. 65 km from campus. Well connected globally and across India. Taxis are readily available to Kollam.
+                Trivandrum Int. Airport is approx. 65 km from campus. Cochin Int. Airport is approx. 175 km away. Both are well connected globally. Taxis are readily available to Kollam.
               </p>
             </div>
 
@@ -72,18 +74,7 @@ export default function VenuePage() {
               </p>
             </div>
 
-            <div className="bg-primary/10 border-l-8 border-primary p-8">
-              <h3 className="font-serif text-2xl font-bold mb-4 text-primary">International Delegates</h3>
-              <p className="font-sans text-lg text-foreground/90 mb-4">
-                Dedicated support is provided to ensure a smooth visit:
-              </p>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-sans text-base text-foreground/90">
-                <li className="flex items-center gap-2"><span className="text-primary font-bold">✓</span> Airport pickup (TRV)</li>
-                <li className="flex items-center gap-2"><span className="text-primary font-bold">✓</span> Local transport</li>
-                <li className="flex items-center gap-2"><span className="text-primary font-bold">✓</span> 3 nights hotel stay</li>
-                <li className="flex items-center gap-2"><span className="text-primary font-bold">✓</span> Guided sightseeing</li>
-              </ul>
-            </div>
+            {/* International Delegates Support Session Hidden for now */}
           </div>
         </div>
 

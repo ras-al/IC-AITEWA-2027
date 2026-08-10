@@ -15,12 +15,12 @@ export const Footer = () => {
               International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation
             </p>
             <p className="font-sans text-sm font-bold text-primary mb-1">18–20 March 2027</p>
-            <p className="font-sans text-sm text-dark-foreground/80">Kollam, Kerala, India</p>
+            <p className="font-sans text-sm text-dark-foreground/80">Department of Mechanical Engineering, TKMCE</p>
           </div>
 
           <div className="md:col-span-4">
             <h4 className="font-sans text-xs font-bold tracking-widest uppercase mb-4 text-dark-foreground/50">Organized By</h4>
-            <p className="font-serif font-bold text-base mb-1">Dept. of Mechanical Engineering</p>
+            <p className="font-serif font-bold text-base mb-1">Department of Mechanical Engineering</p>
             <p className="font-sans text-sm leading-relaxed text-dark-foreground/80 mb-6">
               TKM College of Engineering, Kerala
             </p>

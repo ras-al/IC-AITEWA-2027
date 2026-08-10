@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Lora, Work_Sans } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
-const lora = Lora({
+const lora = Playfair_Display({
   variable: "--font-lora",
   subsets: ["latin"],
   display: 'swap',
 });
 
-const workSans = Work_Sans({
+const workSans = Inter({
   variable: "--font-work-sans",
   subsets: ["latin"],
   display: 'swap',

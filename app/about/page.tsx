@@ -8,7 +8,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      
+
       <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center">About the Conference</h1>
       <p className="font-sans text-xl md:text-2xl leading-relaxed text-foreground/80 mb-20 max-w-4xl mx-auto text-center">
         Uniting global experts to address critical challenges in energy, water, and manufacturing through the lens of artificial intelligence and smart automation.
@@ -49,21 +49,21 @@ export default function AboutPage() {
           <h2 className="font-serif text-4xl font-bold mb-4">Organizing Institutions</h2>
           <div className="h-1 w-24 bg-primary mx-auto"></div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          
+
           <div className="bg-surface border-2 border-foreground p-10 hover:border-primary transition-colors duration-300">
             <h3 className="font-serif text-3xl font-bold mb-2">TKM College of Engineering</h3>
-            <p className="font-sans font-bold tracking-widest uppercase text-primary mb-6 text-sm">Est. 1958 • Kollam, Kerala</p>
-            <p className="font-sans text-lg leading-relaxed text-foreground/80">
+            <p className="font-sans font-bold tracking-widest uppercase text-primary mb-6 text-sm">Est. 1958 • Department of Mechanical Engineering, TKMCE</p>
+            <p className="font-sans text-lg leading-relaxed text-foreground/80 text-justify">
               Established by Janab Thangal Kunju Musaliar under the TKM College Trust, TKM College of Engineering is Kerala&apos;s oldest government-aided autonomous engineering institution in the private sector. Over six decades, it has produced accomplished engineers with a global footprint. The institution is renowned for offering modern computational labs, advanced testing facilities, and a highly collaborative academic environment.
             </p>
           </div>
 
           <div className="bg-surface border-2 border-foreground p-10 hover:border-primary transition-colors duration-300">
-            <h3 className="font-serif text-3xl font-bold mb-2">Dept. of Mechanical Engineering</h3>
+            <h3 className="font-serif text-3xl font-bold mb-2">Department of Mechanical Engineering</h3>
             <p className="font-sans font-bold tracking-widest uppercase text-primary mb-6 text-sm">TKM College of Engineering</p>
-            <p className="font-sans text-lg leading-relaxed text-foreground/80">
+            <p className="font-sans text-lg leading-relaxed text-foreground/80 text-justify">
               Established alongside the college in 1958, this is one of Kerala&apos;s oldest and most prestigious mechanical engineering departments. It offers comprehensive B.Tech, M.Tech, and Ph.D. programmes backed by modern laboratories, strong research facilities, and an uncompromising commitment to excellence in engineering education and practical innovation.
             </p>
           </div>

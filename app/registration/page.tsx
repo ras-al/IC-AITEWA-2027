@@ -59,24 +59,26 @@ export default function RegistrationPage() {
         <div className="space-y-8">
           <div className="bg-surface border-l-4 border-foreground p-8 hover:border-primary transition-colors">
             <h3 className="font-serif text-2xl font-bold mb-3">Official Proceedings</h3>
-            <p className="font-sans text-lg text-foreground/80">All accepted and registered papers will be published in the ISBN-registered official conference proceedings volume.</p>
+            <p className="font-sans text-lg text-foreground/80">All accepted and registered papers will be published in the ISBN-registered official conference proceedings volume</p>
           </div>
           
           <div className="bg-surface border-l-4 border-foreground p-8 hover:border-primary transition-colors">
-            <h3 className="font-serif text-2xl font-bold mb-3">Scopus-Indexed Journals</h3>
-            <p className="font-sans text-lg text-foreground/80">Selected high-quality papers will be nominated for special issues of Scopus-indexed journals, subject to the journal&apos;s independent peer-review process.</p>
+            <h3 className="font-serif text-2xl font-bold mb-3">SCI/Scopus-Indexed Journals</h3>
+            <p className="font-sans text-lg text-foreground/80">Selected high-quality papers will be nominated for special issues of SCI/Scopus-indexed journals, subject to the journal&apos;s independent peer-review process</p>
           </div>
 
+          {/* Hidden for now
           <div className="bg-surface border-l-4 border-foreground p-8 hover:border-primary transition-colors">
             <h3 className="font-serif text-2xl font-bold mb-3">Edited Volume (Springer)</h3>
-            <p className="font-sans text-lg text-foreground/80">Extended book chapters will be considered for a curated edited volume with a major academic publisher (e.g., Springer), subject to final proposal approval.</p>
+            <p className="font-sans text-lg text-foreground/80">Extended book chapters will be considered for a curated edited volume with a major academic publisher (e.g., Springer), subject to final proposal approval</p>
           </div>
+          */}
         </div>
 
         <div className="mt-12 bg-foreground text-surface p-8 text-center">
           <h4 className="font-sans font-bold text-primary tracking-widest uppercase mb-4">Ethics & Policy</h4>
           <p className="text-base font-sans text-surface/90 max-w-2xl mx-auto">
-            All papers are rigorously screened for plagiarism and duplicate submissions. At least one author of an accepted paper must register and present at the conference for the paper to be included in the proceedings.
+            All papers are rigorously screened for plagiarism and duplicate submissions. At least one author of an accepted paper must register and present at the conference for the paper to be included in the proceedings
           </p>
         </div>
       </section>
