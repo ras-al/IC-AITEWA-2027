@@ -55,7 +55,7 @@ export default function Home() {
                 Important Dates
               </h3>
               <div className="space-y-8 relative before:absolute before:inset-0 before:ml-[11px] before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-foreground/20 before:to-transparent">
-                {dates.slice(2, 6).map((date, idx) => (
+                {dates.map((date, idx) => (
                   <div key={idx} className="relative flex items-start group">
                     <div className="flex items-center justify-center w-6 h-6 rounded-full border-2 border-surface bg-primary shadow shrink-0 absolute -left-[11px] top-0"></div>
                     <div className="w-full pl-8">
@@ -128,7 +128,7 @@ export default function Home() {
       <section className="bg-surface py-24 px-4 sm:px-6 lg:px-8 border-t-2 border-foreground/10 text-center">
         <h3 className="font-serif text-3xl font-bold mb-6">Download Conference Brochure</h3>
         <p className="font-sans text-lg text-foreground/80 mb-8 max-w-2xl mx-auto">Get all the details about the conference themes, important dates, and submission guidelines in our comprehensive brochure.</p>
-        <CTAButton href="/brochure.pdf" variant="outline" className="border-foreground hover:bg-foreground hover:text-surface px-8 py-3">
+        <CTAButton href="/IC-AITEWA.pdf" variant="outline" className="border-foreground hover:bg-foreground hover:text-surface px-8 py-3">
           Download Brochure
         </CTAButton>
       </section>

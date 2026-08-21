@@ -1,9 +1,7 @@
 export const dates = [
-  { phase: 'Conference website launch & first call for papers', target: 'July 2026' },
-  { phase: 'Paper submission portal open', target: 'September 2026' },
-  { phase: 'Paper submission deadline', target: 'October 2026' },
-  { phase: 'Review completion & acceptance notification', target: 'November 2026' },
-  { phase: 'Camera-ready submission & registration deadline', target: 'December 2026' },
-  { phase: 'Pre-conference workshops', target: '17 March 2027' },
-  { phase: 'Conference dates', target: '18–20 March 2027' },
+  { phase: 'Abstract Submission', target: 'Oct 10, 2026' },
+  { phase: 'Notification of Acceptance', target: 'Nov 5, 2026' },
+  { phase: 'Camera Ready Paper - Final Paper', target: 'Dec 20, 2026' },
+  { phase: 'Registration', target: 'Jan 20, 2027' },
+  { phase: 'Conference Dates', target: 'Mar 18–20, 2027' },
 ];

@@ -1,7 +1,7 @@
 export const committee = {
   chiefPatrons: [
     {
-      name: 'Sri. T. K. Shahal Hassen Musaliar',
+      name: 'Sri. T. K. Shahal Hassan Musaliar',
       title: 'President, TKM Trust & Chairman, BoG, TEQIP II, TKMCE, Kollam',
     },
   ],
@@ -11,7 +11,7 @@ export const committee = {
       title: 'Treasurer, TKM Trust',
     },
     {
-      name: 'Sri. T. K. Abdul Karim Musaliar',
+      name: 'Sri. Jamaludeen Musaliar',
       title: 'Member, TKM Trust',
     },
     {
@@ -21,7 +21,7 @@ export const committee = {
   ],
   chairman: [
     {
-      name: 'Dr. Sadiq. A.',
+      name: 'Dr. Sadiq A',
       title: 'Principal, TKMCE, Kollam',
     },
   ],
@@ -33,50 +33,83 @@ export const committee = {
   ],
   organizingSecretaries: [
     {
-      name: 'Dr. Baiju V.',
-      title: 'Assistant Professor, Department of Mechanical Engineering',
+      name: 'Dr. Baiju V',
+      title: 'Associate Professor, Department of Mechanical Engineering',
     },
     {
-      name: 'Jesna Mohamed',
-      title: 'Assistant Professor, Department of Mechanical Engineering',
+      name: 'Dr. Jesna Mohamed',
+      title: 'Associate Professor, Department of Mechanical Engineering',
+    },
+    {
+      name: 'Dr. Takashi Suzuki',
+      title: 'Professor, Sophia University, Japan',
+    },
+    {
+      name: 'Dr. Jan Kazak',
+      title: 'Associate Professor, Wroclaw University of Environmental and Life Sciences, Poland',
+    },
+    {
+      name: 'Dr. Chai Ai Bao',
+      title: 'Associate Professor, University of Nottingham, Malaysia',
+    },
+    {
+      name: 'Dr. Mohamed R. Ali',
+      title: 'Professor, Sohar University, Oman',
     },
   ],
   jointSecretaries: [
     {
-      name: 'Firoz',
+      name: 'Dr. Leena R',
       title: 'Assistant Professor, Department of Mechanical Engineering',
     },
     {
-      name: 'Karthik',
+      name: 'Dr. Firoz N',
       title: 'Assistant Professor, Department of Mechanical Engineering',
     },
     {
-      name: 'Faraz',
+      name: 'Dr. Faraz P Junaid',
+      title: 'Assistant Professor, Department of Mechanical Engineering',
+    },
+    {
+      name: 'Prof. P.G. Karthik',
+      title: 'Assistant Professor, Department of Mechanical Engineering',
+    },
+    {
+      name: 'Dr. Anand Sekhar R',
+      title: 'Assistant Professor, Department of Mechanical Engineering',
+    },
+    {
+      name: 'Prof. Ahammed Bilal',
+      title: 'Assistant Professor, Department of Mechanical Engineering',
+    },
+    {
+      name: 'Prof. Mohammed Irfan A',
       title: 'Assistant Professor, Department of Mechanical Engineering',
     },
   ],
-  advisoryCommittee: [
-    { name: 'Sophia University, Japan', logo: '/sophia.png' },
-    { name: 'The University of Newcastle, Australia', logo: '/newcastle.png' },
-    { name: 'IIT Delhi', logo: '/iit-delhi.png' },
-    { name: 'IIT Roorkee', logo: '/iit-roorkee.png' },
-    { name: 'NIT Calicut', logo: '/nit-calicut.png' },
-    { name: 'IISc Bengaluru', logo: '/iisc.png' },
+  internationalAdvisoryCommittee: [
+    { name: 'Dr. Mitsuhisa Ichiyanagi', title: 'Sophia University, Japan' },
+    { name: 'Dr. Pratheek', title: 'Oman' },
+    { name: 'Dr. Nibal Fadel Farman Alhialy', title: 'University of Bagdhadh' },
+    { name: 'Dr. Sathish Clastinrusselraj Indirathankam', title: 'University of New Castle, Australia' },
+    { name: 'Dr. Sandra Boetcher', title: 'Emry- Riddle Aeronautical University, USA' },
+    { name: 'Dr. Afrah Turki Awad', title: 'Northen Technical University, Iraq' },
+    { name: 'Dr. Aravind PV', title: 'University of Groningen, Netherlands' },
   ],
-  participatingInstitutes: [
-    'National Institute of Technology Calicut',
-    'Hindustan Aeronautics Limited (HAL)',
-    'New Leaf Dynamic Technologies',
-    'International Industrial Experts',
-  ],
-  industryPartners: [
-    'Hindustan Aeronautics Limited (HAL)',
-    'New Leaf Dynamic Technologies',
-    'MathWorks',
-    'ANSYS',
-    'Siemens',
-    'Schneider Electric',
-    'Dassault Systèmes',
-    'Autodesk',
+  nationalAdvisoryCommittee: [
+    { name: 'Dr. Rajesh Baby', title: "St. Joseph's College of Engineering & Technology, Palai" },
+    { name: 'Dr. Dibakar Rakshit', title: 'Indian Institute of Technology, Delhi' },
+    { name: 'Dr. Ravish', title: 'Mythri Aqua Tech Hyderabad' },
+    { name: 'Dr. Joy Varghese', title: 'College of Engineering, Thiruvananthapuram' },
+    { name: 'Dr. Anish K John', title: 'Govt Engineering College Barton hill' },
+    { name: 'Dr. Pallav Sinha Mahapatra', title: 'Indian Institute of Technology, Madras' },
+    { name: 'Dr. Vinay V. Panicker', title: 'National Institute of Technology, Calicut' },
+    { name: 'Dr. Ravita Lamba', title: 'Indian Institute of Technology, Roorkee' },
+    { name: 'Dr. Sanjay Kumar Singh', title: 'Indian Institute of Technology (BHU), Varanasi' },
+    { name: 'Dr. Sarvoththama Jothi', title: 'National Institute of Technology, Calicut' },
+    { name: 'Dr. Ranjith M.', title: 'National Institute of Technology, Surathkal, Karnataka' },
+    { name: 'Dr. Manikandan Sundararaj', title: 'SRM Institute of Technology Chennai' },
+    { name: 'Dr. Anoop Velayudhan', title: 'ICMR, NewDelhi' },
+    { name: 'Dr. Salih A', title: 'IIST Thiruvananthapuram' },
   ],
 };

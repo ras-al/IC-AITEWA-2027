@@ -76,12 +76,10 @@ export default function CommitteePage() {
       <CommitteeBlock title="Joint Secretaries" members={committee.jointSecretaries} />
 
       <div className="mt-20 pt-16 border-t-8 border-foreground">
-        <h2 className="font-serif text-4xl font-bold mb-16 text-center">Advisory Committee</h2>
-        <MarqueeBlock items={committee.advisoryCommittee as any} />
-        {/* Hidden for now: 
-        <ListBlock title="Participating Institutes" items={committee.participatingInstitutes} />
-        <ListBlock title="Industry Partners" items={committee.industryPartners} />
-        */}
+        <CommitteeBlock title="International Advisory Committee" members={committee.internationalAdvisoryCommittee} />
+        <div className="border-t border-foreground/20 pt-16 mt-16">
+          <CommitteeBlock title="National Advisory Committee" members={committee.nationalAdvisoryCommittee} />
+        </div>
       </div>
     </div>
   );

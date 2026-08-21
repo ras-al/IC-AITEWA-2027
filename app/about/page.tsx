@@ -17,15 +17,15 @@ export default function AboutPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
         <div className="lg:col-span-8 space-y-8">
           <SectionHeading>Thematic Vision</SectionHeading>
-          <div className="prose prose-lg prose-neutral max-w-none font-sans text-foreground/90 leading-relaxed">
+          <div className="prose prose-lg prose-neutral max-w-none font-sans text-foreground/90 leading-relaxed text-justify">
             <p className="text-xl font-serif text-foreground font-semibold mb-6">
-              The convergence of artificial intelligence, intelligent systems, cyber-physical automation, and digital manufacturing is fundamentally reshaping industry, energy grids, and water infrastructure.
+              IC-AITEWA 2027 - International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation brings together researchers, academicians, industry leaders, innovators, and young researchers to explore how intelligent technologies can address some of the world's most pressing engineering challenges
             </p>
             <p>
-              These technologies are no longer just theoretical concepts; they are positioned as essential, practical tools for addressing the world&apos;s most pressing challenges. From mitigating climate change and stabilizing decentralized renewable energy grids, to ensuring water security and optimizing complex industrial manufacturing processes, intelligent technologies are at the forefront of sustainable engineering.
+              Held at TKM College of Engineering, Kollam, the three-day international conference is centred on the theme “Advancing Sustainable Energy, Water Security and Smart Automation through Intelligent Technologies.” The conference will create a dynamic platform for exchanging ideas, presenting cutting-edge research, fostering interdisciplinary collaboration, and building meaningful international and industry partnerships across Artificial Intelligence, Sustainable Energy, Water Technologies, Intelligent Manufacturing, Robotics, Digital Twins, Industry 5.0, and Smart Infrastructure
             </p>
             <p>
-              IC-AITEWA 2027 aims to serve as a globally recognized, premier platform. It brings together researchers, academicians, industry practitioners, and policymakers to exchange pioneering knowledge, foster collaboration, and ultimately translate academic research into scalable, commercialized solutions.
+              Featuring international and national keynote speakers, technical sessions, expert panels, research presentations, innovation showcases, pre-conference workshops, and an industry exhibition, IC-AITEWA 2027 aims to connect research with real-world impact and bring together diverse perspectives to shape a smarter, more sustainable, and technologically advanced future
             </p>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function AboutPage() {
             <h3 className="font-serif text-3xl font-bold mb-2">TKM College of Engineering</h3>
             <p className="font-sans font-bold tracking-widest uppercase text-primary mb-6 text-sm">Est. 1958 • Department of Mechanical Engineering, TKMCE</p>
             <p className="font-sans text-lg leading-relaxed text-foreground/80 text-justify">
-              Established by Janab Thangal Kunju Musaliar under the TKM College Trust, TKM College of Engineering is Kerala&apos;s oldest government-aided autonomous engineering institution in the private sector. Over six decades, it has produced accomplished engineers with a global footprint. The institution is renowned for offering modern computational labs, advanced testing facilities, and a highly collaborative academic environment.
+              TKM College of Engineering is more than an institution of engineering - it is a legacy of vision, innovation, and ambition that has been shaping generations since 1958. Founded by the visionary Janab Thangal Kunju Musaliar, the pioneering engineering college in Kerala has grown into a dynamic community of students, researchers, innovators, and changemakers. Set against the rich cultural landscape of Kerala, the campus brings together academic excellence, cutting-edge technology, hands-on learning, research, creativity, and a spirit of entrepreneurship.
             </p>
           </div>
 
@@ -64,7 +64,7 @@ export default function AboutPage() {
             <h3 className="font-serif text-3xl font-bold mb-2">Department of Mechanical Engineering</h3>
             <p className="font-sans font-bold tracking-widest uppercase text-primary mb-6 text-sm">TKM College of Engineering</p>
             <p className="font-sans text-lg leading-relaxed text-foreground/80 text-justify">
-              Established alongside the college in 1958, this is one of Kerala&apos;s oldest and most prestigious mechanical engineering departments. It offers comprehensive B.Tech, M.Tech, and Ph.D. programmes backed by modern laboratories, strong research facilities, and an uncompromising commitment to excellence in engineering education and practical innovation.
+              The Department of Mechanical Engineering at TKM College of Engineering is a centre of academic excellence, technical expertise, and innovation. With a strong foundation in mechanical sciences and engineering principles, the department provides students with comprehensive exposure to design, manufacturing, thermal and fluid sciences, materials, automation, robotics, and emerging technologies. Supported by experienced faculty, well-equipped laboratories, research activities, and practical learning, the department fosters an environment where students can develop both theoretical knowledge and engineering skills.
             </p>
           </div>
 

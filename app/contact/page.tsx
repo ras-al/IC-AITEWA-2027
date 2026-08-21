@@ -38,7 +38,7 @@ export default function ContactPage() {
               </button>
             </div>
           ) : (
-            <form action="mailto:organizer@tkmce.ac.in" method="POST" encType="text/plain" className="space-y-6">
+            <form action="mailto:icaitewa27@tkmce.ac.in" method="POST" encType="text/plain" className="space-y-6">
               <div>
                 <label htmlFor="name" className="block font-sans text-sm font-bold uppercase tracking-wider mb-2">Full Name</label>
                 <input 
@@ -104,20 +104,23 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div>
                 <p className="font-sans font-bold text-sm tracking-widest uppercase text-primary mb-1">General Inquiries</p>
-                <p className="font-serif font-bold text-lg">Dr. Baiju V.</p>
+                <p className="font-serif font-bold text-lg">Dr. Baiju V</p>
                 <p className="font-sans text-sm text-foreground/80">Organizing Secretary</p>
+                <p className="font-sans text-sm text-foreground/80"><a href="mailto:baiju@tkmce.ac.in" className="hover:text-primary transition-colors">baiju@tkmce.ac.in</a></p>
+                <p className="font-sans text-sm text-foreground/80">+91 9895937476</p>
               </div>
               
               <div>
                 <p className="font-sans font-bold text-sm tracking-widest uppercase text-primary mb-1">Registration & Papers</p>
-                <p className="font-serif font-bold text-lg">Prof. Jesna Mohamed</p>
+                <p className="font-serif font-bold text-lg">Dr. Jesna Mohamed</p>
                 <p className="font-sans text-sm text-foreground/80">Organizing Secretary</p>
+                <p className="font-sans text-sm text-foreground/80"><a href="mailto:jesnamohammed@tkmce.ac.in" className="hover:text-primary transition-colors">jesnamohammed@tkmce.ac.in</a></p>
+                <p className="font-sans text-sm text-foreground/80">+91 9895010550</p>
               </div>
 
               <div>
-                <p className="font-sans font-bold text-sm tracking-widest uppercase text-primary mb-1">Accommodation & Travel</p>
-                <p className="font-serif font-bold text-lg">Prof. Firos</p>
-                <p className="font-sans text-sm text-foreground/80">Joint Secretary</p>
+                <p className="font-sans font-bold text-sm tracking-widest uppercase text-primary mb-1">Email</p>
+                <p className="font-sans text-sm text-foreground/80"><a href="mailto:icaitewa27@tkmce.ac.in" className="hover:text-primary transition-colors">icaitewa27@tkmce.ac.in</a></p>
               </div>
             </div>
           </div>
