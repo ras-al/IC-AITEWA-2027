@@ -9,12 +9,18 @@ type TimeLeft = {
   seconds: number;
 };
 
-export const Countdown = ({ targetDate }: { targetDate: string }) => {
+type CountdownProps = {
+  targetDate: string;
+  variant?: 'light' | 'dark';
+  className?: string;
+};
+
+export const Countdown = ({ targetDate, variant = 'light', className = '' }: CountdownProps) => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const rafId = requestAnimationFrame(() => setMounted(true));
     const calculateTimeLeft = () => {
       const difference = +new Date(targetDate) - +new Date();
       if (difference > 0) {
@@ -29,11 +35,14 @@ export const Countdown = ({ targetDate }: { targetDate: string }) => {
 
     calculateTimeLeft();
     const timer = setInterval(calculateTimeLeft, 1000);
-    return () => clearInterval(timer);
+    return () => {
+      cancelAnimationFrame(rafId);
+      clearInterval(timer);
+    };
   }, [targetDate]);
 
   if (!mounted) {
-    return <div className="h-[120px] w-full flex items-center justify-center mt-12 mb-4"></div>; // Placeholder
+    return <div className="h-[80px] sm:h-[90px] w-full flex items-center justify-center mt-4 mb-2"></div>; // Placeholder
   }
 
   const timeBlocks = [
@@ -43,16 +52,24 @@ export const Countdown = ({ targetDate }: { targetDate: string }) => {
     { label: "Seconds", value: timeLeft.seconds },
   ];
 
+  const isDark = variant === 'dark';
+
   return (
-    <div className="flex flex-wrap justify-start sm:justify-center gap-4 md:gap-8 mt-16 mb-4">
+    <div className={`flex flex-wrap justify-center gap-2.5 sm:gap-3 md:gap-5 ${className || 'mt-8 sm:mt-10 mb-2'}`}>
       {timeBlocks.map((block) => (
         <div key={block.label} className="flex flex-col items-center">
-          <div className="border-2 border-foreground bg-surface px-4 py-3 md:px-6 md:py-4 w-20 md:w-28 flex justify-center items-center">
-            <span className="font-serif text-3xl md:text-5xl font-bold text-primary">
+          <div className={`border-2 ${
+            isDark 
+              ? 'border-white/25 bg-[#1C1712]/85 backdrop-blur-md shadow-[3px_3px_0_0_rgba(0,0,0,0.5)]' 
+              : 'border-foreground bg-surface shadow-[3px_3px_0_0_#1C1712]'
+          } px-2.5 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 min-w-[3.75rem] sm:min-w-[4.5rem] md:min-w-[5.25rem] flex justify-center items-center`}>
+            <span className="font-sans text-2xl sm:text-3xl md:text-4xl font-bold tabular-nums tracking-tight text-primary">
               {String(block.value).padStart(2, '0')}
             </span>
           </div>
-          <span className="font-sans text-xs md:text-sm font-bold tracking-widest uppercase mt-3 text-foreground/80">
+          <span className={`font-sans text-[10px] sm:text-xs font-semibold tracking-widest uppercase mt-1.5 sm:mt-2 ${
+            isDark ? 'text-white/80' : 'text-foreground/80'
+          }`}>
             {block.label}
           </span>
         </div>

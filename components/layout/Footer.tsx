@@ -7,15 +7,29 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 mb-12">
           
           <div className="md:col-span-5">
-            <div className="flex items-center gap-4 mb-4">
-              <img src="/tkm-favicon.png" alt="TKM Logo" className="h-12 w-auto object-contain bg-white rounded-full p-1" />
-              <h3 className="font-serif text-2xl font-bold">IC-AITEWA 2027</h3>
+            <div className="mb-6">
+              <Link href="/" className="inline-block group">
+                <img 
+                  src="/ai_aictc.png" 
+                  alt="IC-AITEWA 2027 Conference Logo" 
+                  className="w-48 sm:w-56 h-auto object-contain transition-opacity group-hover:opacity-90" 
+                />
+              </Link>
             </div>
-            <p className="font-sans text-sm leading-relaxed text-dark-foreground/80 mb-4 max-w-sm">
+            <p className="font-sans text-sm leading-relaxed text-dark-foreground/80 mb-5 max-w-sm">
               International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation
             </p>
-            <p className="font-sans text-sm font-bold text-primary mb-1">18–20 March 2027</p>
-            <p className="font-sans text-sm text-dark-foreground/80">Department of Mechanical Engineering, TKMCE</p>
+            <div className="flex items-center gap-3 pt-2 border-t border-dark-foreground/10">
+              <img 
+                src="/tkm-favicon.png" 
+                alt="TKM College of Engineering" 
+                className="h-10 w-auto object-contain bg-white rounded-full p-1 shrink-0" 
+              />
+              <div>
+                <p className="font-sans text-xs font-bold text-primary">18–20 March 2027</p>
+                <p className="font-sans text-xs text-dark-foreground/70">Department of Mechanical Engineering, TKMCE</p>
+              </div>
+            </div>
           </div>
 
           <div className="md:col-span-4">

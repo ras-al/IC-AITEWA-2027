@@ -14,10 +14,10 @@ export default function AccommodationPage() {
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        
+
         <div>
           <SectionHeading>Suggested Hotels</SectionHeading>
-          
+
           <div className="space-y-6">
             <div className="bg-surface border-2 border-foreground p-8 hover:border-primary transition-colors">
               <h3 className="font-serif text-2xl font-bold mb-2">The Quilon Beach Hotel</h3>
@@ -80,14 +80,14 @@ export default function AccommodationPage() {
               <li><em>* Note: Uber and Ola are active in the region. Local auto-rickshaws are easily available.</em></li>
             </ul>
           </div>
-          
+
           <SectionHeading>Local Attractions</SectionHeading>
           <div className="bg-surface border-2 border-foreground p-8">
             <ul className="font-sans text-base space-y-3 text-foreground/80">
-              <li>📍 <strong>Ashtamudi Lake:</strong> Famous for houseboat cruises and scenic beauty.</li>
-              <li>📍 <strong>Jatayu Earth's Center:</strong> World's largest bird sculpture, a must-visit.</li>
-              <li>📍 <strong>Munroe Island:</strong> Experience the serene backwaters of Kerala.</li>
-              <li>📍 <strong>Thangassery Lighthouse:</strong> Historic lighthouse offering panoramic views.</li>
+              <li><strong>Ashtamudi Lake:</strong> Famous for houseboat cruises and scenic beauty.</li>
+              <li><strong>Jatayu Earth's Center:</strong> World's largest bird sculpture, a must-visit.</li>
+              <li><strong>Munroe Island:</strong> Experience the serene backwaters of Kerala.</li>
+              <li><strong>Thangassery Lighthouse:</strong> Historic lighthouse offering panoramic views.</li>
             </ul>
           </div>
         </div>

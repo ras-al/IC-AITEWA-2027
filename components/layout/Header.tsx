@@ -24,17 +24,28 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-surface border-b-2 border-foreground">
       <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="flex justify-between items-center h-20 relative">
+        <div className="flex justify-between items-center h-20">
+          {/* Brand Logo */}
           <div className="flex-shrink-0 flex items-center z-10">
-            <Link href="/" className="flex items-center gap-3">
-              <img src="/tkm-favicon.png" alt="TKM Logo" className="h-10 w-auto object-contain" />
-              <span className="font-serif font-bold text-xl tracking-tight hidden sm:block">
-                IC-AITEWA <span className="text-primary ml-1">2027</span>
-              </span>
+            <Link href="/" className="flex items-center gap-3 group">
+              <img 
+                src="/logo-icon.png" 
+                alt="IC-AITEWA Logo" 
+                className="h-11 w-11 object-contain transition-transform duration-200 group-hover:scale-105" 
+              />
+              <div className="flex flex-col">
+                <span className="font-serif font-bold text-lg sm:text-xl tracking-tight leading-none text-foreground whitespace-nowrap">
+                  IC-AITEWA <span className="text-primary ml-0.5">2027</span>
+                </span>
+                <span className="font-sans text-[9px] uppercase tracking-wider text-foreground/60 font-semibold mt-1 hidden sm:block whitespace-nowrap">
+                  TKMCE Kollam
+                </span>
+              </div>
             </Link>
           </div>
           
-          <nav className="hidden xl:flex gap-3 xl:gap-5 items-center absolute left-1/2 -translate-x-1/2 w-max z-0">
+          {/* Centered Navigation */}
+          <nav className="hidden xl:flex gap-4 2xl:gap-6 items-center mx-4">
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
@@ -46,8 +57,22 @@ export const Header = () => {
             ))}
           </nav>
 
-          <div className="hidden xl:flex items-center z-10">
-            <CTAButton href="/call-for-papers" className="px-5 py-2 text-[10px] xl:text-xs">
+          {/* Right Action & Host Institution Logo */}
+          <div className="hidden xl:flex items-center gap-4 z-10">
+            <Link 
+              href="https://tkmce.ac.in" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 group/tkm"
+              title="TKM College of Engineering, Kollam"
+            >
+              <img 
+                src="/tkm-favicon.png" 
+                alt="TKM College of Engineering" 
+                className="h-9 w-auto object-contain opacity-85 group-hover/tkm:opacity-100 transition-opacity" 
+              />
+            </Link>
+            <CTAButton href="/call-for-papers" className="px-5 py-2 text-[10px] xl:text-xs whitespace-nowrap">
               Submit Abstract
             </CTAButton>
           </div>

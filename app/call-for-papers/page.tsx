@@ -46,18 +46,23 @@ export default function CallForPapersPage() {
             </div>
           </section>
 
-              <div className="mt-8 border-2 border-primary/20 bg-surface p-8 shadow-[8px_8px_0_0_#C1502E]">
-                <h3 className="font-serif text-2xl font-bold mb-6 text-foreground">Download Templates</h3>
-                <div className="flex flex-col gap-4">
-                  <a href="#" className="inline-flex items-center gap-2 font-sans font-bold text-sm uppercase tracking-widest text-primary hover:text-primary-hover border-b border-primary/20 pb-2">
-                    Manuscript Template (Word)
-                  </a>
-                  <a href="#" className="inline-flex items-center gap-2 font-sans font-bold text-sm uppercase tracking-widest text-primary hover:text-primary-hover border-b border-primary/20 pb-2">
-                    Presentation Template (PPTX)
-                  </a>
-                  <a href="#" className="inline-flex items-center gap-2 font-sans font-bold text-sm uppercase tracking-widest text-primary hover:text-primary-hover pb-2">
-                    Poster Template (PDF)
-                  </a>
+              <div className="mt-8 border-2 border-primary/20 bg-surface p-8 shadow-[8px_8px_0_0_#C1502E] flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                <div className="shrink-0 w-24 h-24 p-2 bg-background border border-foreground/15 rounded-lg flex items-center justify-center">
+                  <img src="/black_ai_aictc.png" alt="IC-AITEWA Seal" className="max-h-full max-w-full object-contain" />
+                </div>
+                <div className="flex-1 w-full">
+                  <h3 className="font-serif text-2xl font-bold mb-4 text-foreground">Download Templates</h3>
+                  <div className="flex flex-col gap-3">
+                    <a href="#" className="inline-flex items-center gap-2 font-sans font-bold text-sm uppercase tracking-widest text-primary hover:text-primary-hover border-b border-primary/20 pb-2">
+                      Manuscript Template (Word)
+                    </a>
+                    <a href="#" className="inline-flex items-center gap-2 font-sans font-bold text-sm uppercase tracking-widest text-primary hover:text-primary-hover border-b border-primary/20 pb-2">
+                      Presentation Template (PPTX)
+                    </a>
+                    <a href="#" className="inline-flex items-center gap-2 font-sans font-bold text-sm uppercase tracking-widest text-primary hover:text-primary-hover pb-2">
+                      Poster Template (PDF)
+                    </a>
+                  </div>
                 </div>
               </div>
 

@@ -19,6 +19,16 @@ const workSans = Inter({
 export const metadata: Metadata = {
   title: "IC-AITEWA 2027 | TKM College of Engineering",
   description: "International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation. Hosted by TKM College of Engineering, Kollam.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/logo-icon.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/logo-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({

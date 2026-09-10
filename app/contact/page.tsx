@@ -88,14 +88,21 @@ export default function ContactPage() {
         <div>
           <SectionHeading>Organizing Committee</SectionHeading>
           
-          <div className="bg-foreground text-surface p-8 mb-8">
-            <h3 className="font-serif text-2xl font-bold mb-4">Postal Address</h3>
-            <p className="font-sans leading-relaxed text-surface/80">
-              Department of Mechanical Engineering<br/>
-              TKM College of Engineering<br/>
-              Karicode, Kollam<br/>
-              Kerala, India - 691005
-            </p>
+          <div className="bg-foreground text-surface p-8 mb-8 flex flex-col sm:flex-row items-start justify-between gap-6">
+            <div>
+              <h3 className="font-serif text-2xl font-bold mb-4">Postal Address</h3>
+              <p className="font-sans leading-relaxed text-surface/80">
+                Department of Mechanical Engineering<br/>
+                TKM College of Engineering<br/>
+                Karicode, Kollam<br/>
+                Kerala, India - 691005
+              </p>
+            </div>
+            <img 
+              src="/ai_aictc.png" 
+              alt="IC-AITEWA Conference Logo" 
+              className="w-28 h-auto object-contain shrink-0 opacity-90 self-center sm:self-start" 
+            />
           </div>
 
           <div className="border-2 border-foreground p-8">

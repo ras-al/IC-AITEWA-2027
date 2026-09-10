@@ -7,7 +7,7 @@ type Column = {
 
 type DataTableProps = {
   columns: Column[];
-  data: any[];
+  data: Record<string, React.ReactNode>[];
 };
 
 export const DataTable: React.FC<DataTableProps> = ({ columns, data }) => {
