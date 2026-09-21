@@ -5,8 +5,26 @@ export const content = {
     theme: 'Advancing Sustainable Energy, Water Security and Smart Automation through Intelligent Technologies',
     dates: '18–20 March 2027',
     preConferenceDates: '17 March 2027',
-    venue: 'TKM College of Engineering, Karicode, Kollam, Kerala, India',
+    venue: 'TKM College of Engineering, Karicode, Kollam, Kerala, India (A Govt. Aided and Autonomous Institution)',
     organizer: 'Department of Mechanical Engineering, TKM College of Engineering, Kollam, Kerala, India',
     inAssociationWith: 'Sophia University, Tokyo, Japan',
-  }
+    email: 'icaitewa27@tkmce.ac.in',
+    website: 'https://IC-AITEWA-2027.tkmce.ac.in',
+  },
+  contacts: [
+    {
+      name: 'Dr. Baiju V',
+      designation: 'Associate Professor, Department of Mechanical Engineering',
+      role: 'Organizing Secretary',
+      email: 'baiju@tkmce.ac.in',
+      phone: '+91 9895937476',
+    },
+    {
+      name: 'Dr. Jesna Mohamed',
+      designation: 'Associate Professor, Department of Mechanical Engineering',
+      role: 'Organizing Secretary',
+      email: 'jesnamohammed@tkmce.ac.in',
+      phone: '+91 9895010550',
+    },
+  ],
 };

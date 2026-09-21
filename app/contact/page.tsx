@@ -3,18 +3,127 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { useState } from "react";
 import { CTAButton } from "@/components/ui/CTAButton";
+import { content } from "@/data/content";
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    affiliation: "",
+    phone: "",
+    category: "Paper Submission & Extended Abstract",
+    paperId: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "success">("idle");
+  const [copied, setCopied] = useState(false);
+  const [preparedEmail, setPreparedEmail] = useState({
+    subject: "",
+    body: "",
+    mailtoUrl: "",
+    gmailUrl: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("submitting");
-    
-    // TODO: wire to real backend/Formspree/Google Form
-    setTimeout(() => {
-      setStatus("success");
-    }, 1500);
+
+    const fullName = formData.name.trim();
+    const email = formData.email.trim();
+    const affiliation = formData.affiliation.trim() || "Not specified";
+    const phone = formData.phone.trim() || "Not specified";
+    const category = formData.category;
+    const paperId = formData.paperId.trim();
+    const customSubject = formData.subject.trim();
+    const message = formData.message.trim();
+
+    const emailSubject = customSubject
+      ? `[IC-AITEWA 2027 Inquiry] ${category} - ${customSubject} (${fullName})`
+      : `[IC-AITEWA 2027 Inquiry] ${category} - ${fullName}`;
+
+    const currentDate = new Date().toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+
+    const emailBody =
+      `To:
+The Organizing Committee & Conference Secretariat
+International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027)
+Department of Mechanical Engineering, TKM College of Engineering
+Kollam, Kerala, India - 691005
+Official Email: icaitewa27@tkmce.ac.in | Website: https://IC-AITEWA-2027.tkmce.ac.in
+
+Respected Organizing Chairs & Committee Members,
+
+Greetings.
+
+I am writing to formally submit an inquiry regarding the upcoming International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027), organized by the Department of Mechanical Engineering, TKM College of Engineering, Kollam, in association with Sophia University, Tokyo, Japan (March 18–20, 2027).
+
+Category: ${category}
+${paperId ? `Paper ID / Reference: ${paperId}\r\n` : ""}${customSubject ? `Subject: ${customSubject}\r\n` : ""}Date of Request: ${currentDate}
+
+Query / Message:
+
+${message}
+
+
+Full Name: ${fullName}
+Designation & Institution: ${affiliation}
+Official Email: ${email}
+Contact Number: ${phone}
+
+Kindly review the above query and share the relevant details or guidance at your earliest convenience.
+
+Thank you very much for your time and assistance.
+
+Respectfully yours,
+
+${fullName}
+${affiliation !== "Not specified" ? `${affiliation}\r\n` : ""}${email}${phone !== "Not specified" ? ` | Tel: ${phone}` : ""}`;
+
+    const encodedSubject = encodeURIComponent(emailSubject);
+    const encodedBody = encodeURIComponent(emailBody);
+
+    const mailtoUrl = `mailto:icaitewa27@tkmce.ac.in?subject=${encodedSubject}&body=${encodedBody}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=icaitewa27@tkmce.ac.in&su=${encodedSubject}&body=${encodedBody}`;
+
+    setPreparedEmail({
+      subject: emailSubject,
+      body: emailBody,
+      mailtoUrl,
+      gmailUrl,
+    });
+
+    setStatus("success");
+    setCopied(false);
+
+    // Launch default email client
+    try {
+      window.location.href = mailtoUrl;
+    } catch {
+      // Ignore if navigation is blocked
+    }
+  };
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(
+        `Subject: ${preparedEmail.subject}
+
+${preparedEmail.body}`
+      );
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
   };
 
   return (
@@ -22,112 +131,283 @@ export default function ContactPage() {
       <h1 className="font-serif text-4xl md:text-5xl font-bold mb-16">Contact Us</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        
+
         <div>
-          <SectionHeading>Send a Message</SectionHeading>
-          
+          <SectionHeading>Send an Official Inquiry</SectionHeading>
+
           {status === "success" ? (
-            <div className="bg-primary/10 border-2 border-primary p-8 text-center">
-              <h3 className="font-serif text-2xl font-bold text-primary mb-2">Message Sent</h3>
-              <p className="font-sans">Thank you for reaching out. The organizing committee will get back to you shortly.</p>
-              <button 
-                onClick={() => setStatus("idle")}
-                className="mt-6 font-sans text-sm font-bold tracking-widest uppercase underline"
-              >
-                Send Another Message
-              </button>
+            <div className="border-2 border-primary bg-primary/5 p-6 sm:p-8 space-y-6 shadow-[6px_6px_0_0_#C1502E]">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-primary text-surface flex items-center justify-center font-bold text-xl shrink-0">
+                  ✓
+                </div>
+                <div>
+                  <h3 className="font-serif text-2xl font-bold text-foreground">Official Inquiry Prepared</h3>
+                  <p className="font-sans text-sm text-foreground/80 mt-1">
+                    Your email client has been prompted with the drafted formal communication. If your mail client did not open automatically, choose an option below:
+                  </p>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                <a
+                  href={preparedEmail.mailtoUrl}
+                  className="inline-flex items-center justify-center px-4 py-3 bg-foreground text-surface text-xs font-bold uppercase tracking-wider hover:bg-foreground/80 transition-colors text-center"
+                >
+                  Open Mail App
+                </a>
+
+                <a
+                  href={preparedEmail.gmailUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-4 py-3 bg-[#EA4335] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#D93025] transition-colors text-center"
+                >
+                  Open in Gmail (Web)
+                </a>
+
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  className="sm:col-span-2 inline-flex items-center justify-center px-4 py-3 border-2 border-foreground bg-surface text-foreground text-xs font-bold uppercase tracking-wider hover:bg-foreground hover:text-surface transition-colors text-center"
+                >
+                  {copied ? "✓ Copied to Clipboard!" : "Copy Formatted Letter"}
+                </button>
+              </div>
+
+              {/* Email Preview */}
+              <div className="pt-2">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-sans text-xs font-bold uppercase tracking-wider text-primary">Drafted Academic Letter Preview</span>
+                  <span className="font-sans text-xs text-foreground/60">To: icaitewa27@tkmce.ac.in</span>
+                </div>
+                <div className="bg-surface border border-foreground/20 p-4 max-h-64 overflow-y-auto font-mono text-xs text-foreground/90 whitespace-pre-wrap leading-relaxed">
+                  <div className="font-bold text-foreground mb-2 pb-2 border-b border-foreground/10">
+                    Subject: {preparedEmail.subject}
+                  </div>
+                  {preparedEmail.body}
+                </div>
+              </div>
+
+              {/* Reset/Edit Button */}
+              <div className="pt-2 flex justify-between items-center text-xs font-sans">
+                <button
+                  onClick={() => setStatus("idle")}
+                  className="font-bold tracking-wider uppercase underline hover:text-primary transition-colors cursor-pointer"
+                >
+                  ← Edit or Send Another Message
+                </button>
+                <span className="text-foreground/60">IC-AITEWA 2027 Secretariat</span>
+              </div>
             </div>
           ) : (
-            <form action="mailto:icaitewa27@tkmce.ac.in" method="POST" encType="text/plain" className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block font-sans text-sm font-bold uppercase tracking-wider mb-2">Full Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="name"
-                  required
-                  className="w-full bg-surface border-2 border-foreground/20 px-4 py-3 font-sans focus:border-primary focus:outline-none transition-colors"
-                  placeholder="Prof. Jane Doe"
-                />
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block font-sans text-xs font-bold uppercase tracking-wider mb-2">
+                    Full Name <span className="text-primary">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full bg-surface border-2 border-foreground/20 px-4 py-3 font-sans text-sm focus:border-primary focus:outline-none transition-colors"
+                    placeholder="Prof. / Dr. Jane Doe"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block font-sans text-xs font-bold uppercase tracking-wider mb-2">
+                    Official Email <span className="text-primary">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full bg-surface border-2 border-foreground/20 px-4 py-3 font-sans text-sm focus:border-primary focus:outline-none transition-colors"
+                    placeholder="author@university.edu"
+                  />
+                </div>
               </div>
-              
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="affiliation" className="block font-sans text-xs font-bold uppercase tracking-wider mb-2">
+                    Designation & Institution <span className="text-primary">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="affiliation"
+                    name="affiliation"
+                    required
+                    value={formData.affiliation}
+                    onChange={handleChange}
+                    className="w-full bg-surface border-2 border-foreground/20 px-4 py-3 font-sans text-sm focus:border-primary focus:outline-none transition-colors"
+                    placeholder="Associate Professor, TKMCE / IIT / Org"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block font-sans text-xs font-bold uppercase tracking-wider mb-2">
+                    Phone / WhatsApp <span className="text-foreground/40 font-normal">(Optional)</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full bg-surface border-2 border-foreground/20 px-4 py-3 font-sans text-sm focus:border-primary focus:outline-none transition-colors"
+                    placeholder="+91 98765 43210"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="sm:col-span-2">
+                  <label htmlFor="category" className="block font-sans text-xs font-bold uppercase tracking-wider mb-2">
+                    Inquiry Category <span className="text-primary">*</span>
+                  </label>
+                  <select
+                    id="category"
+                    name="category"
+                    value={formData.category}
+                    onChange={handleChange}
+                    className="w-full bg-surface border-2 border-foreground/20 px-4 py-3 font-sans text-sm focus:border-primary focus:outline-none transition-colors cursor-pointer"
+                  >
+                    <option value="Paper Submission & Extended Abstract">Paper Submission & Extended Abstract</option>
+                    <option value="Review Status & Camera-Ready Submission">Review Status & Camera-Ready Submission</option>
+                    <option value="Registration, Fees & Invoicing">Registration, Fees & Invoicing</option>
+                    <option value="Travel, Visa & Accommodation Assistance">Travel, Visa & Accommodation Assistance</option>
+                    <option value="Sponsorship & Industry Partnership">Sponsorship & Industry Partnership</option>
+                    <option value="Keynote & Technical Sessions">Keynote & Technical Sessions</option>
+                    <option value="General Conference Inquiry">General Conference Inquiry</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="paperId" className="block font-sans text-xs font-bold uppercase tracking-wider mb-2">
+                    Paper ID <span className="text-foreground/40 font-normal">(If any)</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="paperId"
+                    name="paperId"
+                    value={formData.paperId}
+                    onChange={handleChange}
+                    className="w-full bg-surface border-2 border-foreground/20 px-4 py-3 font-sans text-sm focus:border-primary focus:outline-none transition-colors"
+                    placeholder="e.g. AITEWA-102"
+                  />
+                </div>
+              </div>
+
               <div>
-                <label htmlFor="email" className="block font-sans text-sm font-bold uppercase tracking-wider mb-2">Email Address</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email"
-                  required
-                  className="w-full bg-surface border-2 border-foreground/20 px-4 py-3 font-sans focus:border-primary focus:outline-none transition-colors"
-                  placeholder="jane.doe@university.edu"
+                <label htmlFor="subject" className="block font-sans text-xs font-bold uppercase tracking-wider mb-2">
+                  Subject / Topic Summary <span className="text-foreground/40 font-normal">(Optional)</span>
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="w-full bg-surface border-2 border-foreground/20 px-4 py-3 font-sans text-sm focus:border-primary focus:outline-none transition-colors"
+                  placeholder="e.g. Query regarding Track 2 Extended Abstract submission"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block font-sans text-sm font-bold uppercase tracking-wider mb-2">Message</label>
-                <textarea 
-                  id="message" 
+                <label htmlFor="message" className="block font-sans text-xs font-bold uppercase tracking-wider mb-2">
+                  Message / Inquiry Details <span className="text-primary">*</span>
+                </label>
+                <textarea
+                  id="message"
                   name="message"
                   required
                   rows={5}
-                  className="w-full bg-surface border-2 border-foreground/20 px-4 py-3 font-sans focus:border-primary focus:outline-none transition-colors"
-                  placeholder="Your inquiry regarding the conference..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full bg-surface border-2 border-foreground/20 px-4 py-3 font-sans text-sm focus:border-primary focus:outline-none transition-colors"
+                  placeholder="Please state your inquiry with any relevant details..."
                 ></textarea>
               </div>
 
-              <button 
-                type="submit" 
-                className="inline-flex items-center justify-center px-8 py-4 font-sans font-bold text-sm tracking-widest uppercase transition-colors duration-200 border-2 bg-foreground border-foreground text-surface hover:bg-foreground/80 hover:border-foreground/80"
+              <button
+                type="submit"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 font-sans font-bold text-sm tracking-widest uppercase transition-colors duration-200 border-2 bg-foreground border-foreground text-surface hover:bg-foreground/80 hover:border-foreground/80 cursor-pointer"
               >
-                Send Message
+                Draft & Send Official Message →
               </button>
             </form>
           )}
         </div>
 
         <div>
-          <SectionHeading>Organizing Committee</SectionHeading>
-          
-          <div className="bg-foreground text-surface p-8 mb-8 flex flex-col sm:flex-row items-start justify-between gap-6">
+          <SectionHeading>Organizing Committee & Contacts</SectionHeading>
+
+          <div className="bg-foreground text-surface p-8 mb-8 flex flex-col sm:flex-row items-start justify-between gap-6 shadow-[8px_8px_0_0_#C1502E]">
             <div>
               <h3 className="font-serif text-2xl font-bold mb-4">Postal Address</h3>
               <p className="font-sans leading-relaxed text-surface/80">
-                Department of Mechanical Engineering<br/>
-                TKM College of Engineering<br/>
-                Karicode, Kollam<br/>
-                Kerala, India - 691005
+                Department of Mechanical Engineering<br />
+                TKM College of Engineering<br />
+                Karicode, Kollam<br />
+                Kerala, India &ndash; 691005
               </p>
             </div>
-            <img 
-              src="/ai_aictc.png" 
-              alt="IC-AITEWA Conference Logo" 
-              className="w-28 h-auto object-contain shrink-0 opacity-90 self-center sm:self-start" 
+            <img
+              src="/ai_aictc.png"
+              alt="IC-AITEWA Conference Logo"
+              className="w-28 h-auto object-contain shrink-0 opacity-90 self-center sm:self-start"
             />
           </div>
 
-          <div className="border-2 border-foreground p-8">
-            <h3 className="font-serif text-2xl font-bold mb-6">Key Contacts</h3>
-            
-            <div className="space-y-6">
-              <div>
-                <p className="font-sans font-bold text-sm tracking-widest uppercase text-primary mb-1">General Inquiries</p>
-                <p className="font-serif font-bold text-lg">Dr. Baiju V</p>
-                <p className="font-sans text-sm text-foreground/80">Organizing Secretary</p>
-                <p className="font-sans text-sm text-foreground/80"><a href="mailto:baiju@tkmce.ac.in" className="hover:text-primary transition-colors">baiju@tkmce.ac.in</a></p>
-                <p className="font-sans text-sm text-foreground/80">+91 9895937476</p>
-              </div>
-              
-              <div>
-                <p className="font-sans font-bold text-sm tracking-widest uppercase text-primary mb-1">Registration & Papers</p>
-                <p className="font-serif font-bold text-lg">Dr. Jesna Mohamed</p>
-                <p className="font-sans text-sm text-foreground/80">Organizing Secretary</p>
-                <p className="font-sans text-sm text-foreground/80"><a href="mailto:jesnamohammed@tkmce.ac.in" className="hover:text-primary transition-colors">jesnamohammed@tkmce.ac.in</a></p>
-                <p className="font-sans text-sm text-foreground/80">+91 9895010550</p>
-              </div>
+          <div className="border-2 border-foreground p-8 bg-surface shadow-[8px_8px_0_0_#1C1712]">
+            <h3 className="font-serif text-2xl font-bold mb-6">For Enquiries</h3>
 
-              <div>
-                <p className="font-sans font-bold text-sm tracking-widest uppercase text-primary mb-1">Email</p>
-                <p className="font-sans text-sm text-foreground/80"><a href="mailto:icaitewa27@tkmce.ac.in" className="hover:text-primary transition-colors">icaitewa27@tkmce.ac.in</a></p>
+            <div className="space-y-6">
+              {content.contacts.map((contact, idx) => (
+                <div key={idx} className="border-b border-foreground/10 pb-5 last:border-b-0 last:pb-0">
+                  <p className="font-sans font-bold text-xs tracking-widest uppercase text-primary mb-1">{contact.role}</p>
+                  <p className="font-serif font-bold text-lg text-foreground">{contact.name}</p>
+                  <p className="font-sans text-xs sm:text-sm text-foreground/70 mb-2">{contact.designation}</p>
+                  <div className="space-y-1 font-sans text-sm">
+                    <p>
+                      <span className="font-medium text-foreground/60">Email: </span>
+                      <a href={`mailto:${contact.email}`} className="text-primary hover:underline font-medium">
+                        {contact.email}
+                      </a>
+                    </p>
+                    <p>
+                      <span className="font-medium text-foreground/60">Phone: </span>
+                      <a href={`tel:${contact.phone.replace(/\s+/g, '')}`} className="text-foreground hover:text-primary transition-colors">
+                        {contact.phone}
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              ))}
+
+              <div className="pt-4 border-t-2 border-foreground/10 space-y-2">
+                <div>
+                  <p className="font-sans font-bold text-xs tracking-widest uppercase text-primary mb-1">Official Conference Mail</p>
+                  <a href={`mailto:${content.conference.email}`} className="font-sans text-base font-bold text-foreground hover:text-primary transition-colors">
+                    {content.conference.email}
+                  </a>
+                </div>
+                <div className="pt-2">
+                  <p className="font-sans font-bold text-xs tracking-widest uppercase text-primary mb-1">Official Website</p>
+                  <a href={content.conference.website} target="_blank" rel="noopener noreferrer" className="font-sans text-sm font-medium text-foreground hover:text-primary underline">
+                    {content.conference.website}
+                  </a>
+                </div>
               </div>
             </div>
           </div>

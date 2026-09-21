@@ -27,7 +27,7 @@ export const Footer = () => {
               />
               <div>
                 <p className="font-sans text-xs font-bold text-primary">18–20 March 2027</p>
-                <p className="font-sans text-xs text-dark-foreground/70">Department of Mechanical Engineering, TKMCE</p>
+                <p className="font-sans text-xs text-dark-foreground/70">Department of Mechanical Engineering, TKMCE, Kollam, Kerala, India</p>
               </div>
             </div>
           </div>

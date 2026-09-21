@@ -1,84 +1,215 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { committee } from "@/data/committee";
+import { committee, CommitteeMember } from "@/data/committee";
 
 export const metadata = {
   title: "Committee | IC-AITEWA 2027",
-  description: "Organizing and Advisory Committees for IC-AITEWA 2027.",
+  description: "Organizing Committee, International & National Advisory Boards, and Student Council for IC-AITEWA 2027.",
 };
 
-const CommitteeBlock = ({ title, members }: { title: string, members: { name: string, title: string }[] }) => (
-  <div className="mb-16">
-    <SectionHeading>{title}</SectionHeading>
-    <div className="flex flex-wrap justify-center gap-8">
-      {members.map((member, idx) => (
-        <div key={idx} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] p-8 flex flex-col items-center text-center border-2 border-foreground bg-surface shadow-[8px_8px_0_0_#1C1712] hover:-translate-y-1 transition-transform duration-300">
-          
-          <div className="w-32 h-32 bg-foreground/10 rounded-full mb-6 border-4 border-surface shadow-md overflow-hidden shrink-0">
-            {/* Image Placeholder */}
-            <div className="w-full h-full bg-primary/20 flex items-center justify-center">
-              <span className="font-serif text-3xl font-bold text-primary">{member.name.replace(/^(Dr\.|Prof\.|Mr\.|Ms\.)\s*/i, '').charAt(0)}</span>
-            </div>
-          </div>
+interface MemberCardProps {
+  member: CommitteeMember;
+  badge?: string;
+}
 
-          <p className="font-serif font-bold text-xl mb-2 text-foreground">{member.name}</p>
-          <p className="font-sans text-xs font-bold uppercase tracking-widest whitespace-pre-line text-primary">
-            {member.title.replace('Joint Secretary, ', 'Joint Secretary\n')}
-          </p>
+const MemberPhotoCard = ({ member, badge }: MemberCardProps) => (
+  <div className="flex flex-col items-center text-center border-2 border-foreground bg-surface p-8 shadow-[8px_8px_0_0_#1C1712] hover:-translate-y-1 transition-transform duration-300 h-full">
+    <div className="w-32 h-32 md:w-36 md:h-36 rounded-full mb-6 border-4 border-foreground/30 shadow-md overflow-hidden shrink-0 bg-foreground/10 relative">
+      {member.image ? (
+        <img 
+          src={member.image} 
+          alt={member.name} 
+          className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300"
+        />
+      ) : (
+        <div className="w-full h-full bg-primary/20 flex items-center justify-center">
+          <span className="font-serif text-3xl font-bold text-primary">
+            {member.name.replace(/^(Dr\.|Prof\.|Mr\.|Ms\.|Sri\.)\s*/i, '').charAt(0)}
+          </span>
+        </div>
+      )}
+    </div>
+
+    {badge && (
+      <span className="inline-block font-sans text-xs font-bold uppercase tracking-widest text-primary mb-2">
+        {badge}
+      </span>
+    )}
+    <p className="font-serif font-bold text-xl md:text-2xl mb-2 text-foreground">{member.name}</p>
+    <p className="font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-foreground/80 leading-relaxed mt-auto">
+      {member.title}
+    </p>
+  </div>
+);
+
+const NumberedCommitteeGrid = ({ 
+  title, 
+  members,
+  columns = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+}: { 
+  title: string; 
+  members: { name: string; title: string }[];
+  columns?: string;
+}) => (
+  <div className="mb-20">
+    <SectionHeading>{title}</SectionHeading>
+    <div className={`grid ${columns} gap-6`}>
+      {members.map((member, idx) => (
+        <div 
+          key={idx} 
+          className="bg-surface border-2 border-foreground p-6 shadow-[6px_6px_0_0_#1C1712] hover:-translate-y-0.5 transition-transform duration-200 flex items-start gap-4"
+        >
+          <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-foreground/5 border border-foreground/20 font-sans text-xs font-bold text-primary shrink-0">
+            {idx + 1}
+          </span>
+          <div className="flex flex-col justify-between flex-1">
+            <p className="font-serif font-bold text-lg md:text-xl text-foreground mb-1">{member.name}</p>
+            <p className="font-sans text-xs sm:text-sm text-foreground/80 font-medium leading-relaxed">
+              {member.title}
+            </p>
+          </div>
         </div>
       ))}
     </div>
   </div>
 );
 
-const MarqueeBlock = ({ items }: { items: { name: string, logo: string }[] }) => {
-  const extendedItems = [...items, ...items, ...items, ...items];
+const StudentCouncilBlock = ({
+  members,
+}: {
+  members: { name: string; title: string }[];
+}) => {
+  const getBadgeColor = (title: string) => {
+    if (title.includes('Head')) return 'bg-primary text-surface';
+    if (title.includes('Tech Coordinator')) return 'bg-foreground text-surface';
+    return 'bg-foreground/10 text-foreground';
+  };
+
   return (
-    <div className="mb-16 overflow-hidden w-full relative before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-16 before:bg-gradient-to-r before:from-background before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-16 after:bg-gradient-to-l after:from-background after:to-transparent">
-      <div className="flex w-max animate-marquee gap-16 py-8 hover:[animation-play-state:paused]">
-        {extendedItems.map((item, idx) => (
-          <div key={idx} className="flex-shrink-0 flex flex-col items-center justify-center w-48 h-48 bg-surface border-2 border-foreground shadow-[8px_8px_0_0_#1C1712] hover:-translate-y-1 transition-transform duration-300 p-6">
-            {/* Using a standard img since these might be simple placeholders initially */}
-            <img src={item.logo} alt={item.name} className="max-w-full max-h-full object-contain" />
-          </div>
-        ))}
+    <div className="mb-20">
+      <SectionHeading>Student Council</SectionHeading>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {members.map((member, idx) => {
+          const parts = member.title.split(', ');
+          const role = parts[0] || member.title;
+          const dept = parts.slice(1).join(', ') || '';
+
+          return (
+            <div 
+              key={idx} 
+              className="bg-surface border-2 border-foreground p-6 shadow-[6px_6px_0_0_#1C1712] hover:-translate-y-1 transition-transform duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className={`inline-block font-sans text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 ${getBadgeColor(role)}`}>
+                    {role}
+                  </span>
+                  <span className="font-sans text-xs font-bold text-foreground/40">
+                    #{idx + 1}
+                  </span>
+                </div>
+                <p className="font-serif font-bold text-lg text-foreground mb-1">{member.name}</p>
+              </div>
+              {dept && (
+                <p className="font-sans text-xs text-foreground/70 mt-3 pt-3 border-t border-foreground/10">
+                  {dept}
+                </p>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 };
 
-const ListBlock = ({ title, items }: { title: string, items: string[] }) => (
-  <div className="mb-16">
-    <SectionHeading>{title}</SectionHeading>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {items.map((item, idx) => (
-        <div key={idx} className="bg-surface border-2 border-foreground/20 p-6 h-full flex items-center gap-4">
-          <div className="w-12 h-12 bg-foreground/5 rounded-full flex items-center justify-center shrink-0 overflow-hidden">
-             {/* Placeholder for logos */}
-             <span className="font-serif text-lg font-bold text-primary">{item.charAt(0)}</span>
-          </div>
-          <p className="font-sans font-bold text-lg text-foreground">{item}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-);
-
 export default function CommitteePage() {
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-20 text-center">Organizing Committee</h1>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <div className="text-center mb-16 sm:mb-20">
+        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+          Organizing Committee
+        </h1>
+        <p className="font-sans text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto">
+          Distinguished leadership, academic chairs, international secretaries, and advisory members guiding IC-AITEWA 2027.
+        </p>
+      </div>
 
-      <CommitteeBlock title="Chief Patron" members={committee.chiefPatrons} />
-      <CommitteeBlock title="Patrons" members={committee.patrons} />
-      <CommitteeBlock title="Chairman" members={committee.chairman} />
-      <CommitteeBlock title="Chair" members={committee.chair} />
-      <CommitteeBlock title="Organizing Secretaries" members={committee.organizingSecretaries} />
-      <CommitteeBlock title="Joint Secretaries" members={committee.jointSecretaries} />
+      {/* 1. Chief Patron (Brochure Page 3) */}
+      <div className="mb-20">
+        <SectionHeading>Chief Patron</SectionHeading>
+        <div className="max-w-md mx-auto">
+          {committee.chiefPatrons.map((member, idx) => (
+            <MemberPhotoCard key={idx} member={member} badge="Chief Patron" />
+          ))}
+        </div>
+      </div>
 
-      <div className="mt-20 pt-16 border-t-8 border-foreground">
-        <CommitteeBlock title="International Advisory Committee" members={committee.internationalAdvisoryCommittee} />
+      {/* 2. Honorary Patron & Patrons (Brochure Page 3 Tier) */}
+      <div className="mb-20">
+        <SectionHeading>Honorary Patron & Patrons</SectionHeading>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+          {/* Honorary Patron */}
+          {committee.honoraryPatrons.map((member, idx) => (
+            <MemberPhotoCard key={`hon-${idx}`} member={member} badge="Honorary Patron" />
+          ))}
+          {/* Patrons */}
+          {committee.patrons.map((member, idx) => (
+            <MemberPhotoCard key={`patron-${idx}`} member={member} badge="Patron" />
+          ))}
+        </div>
+      </div>
+
+      {/* 3. Conference Chair & Co-Chair (Brochure Page 3 Tier) */}
+      <div className="mb-20">
+        <SectionHeading>Conference Chairs</SectionHeading>
+        <div className="grid grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto gap-8 justify-center">
+          {committee.conferenceChair.map((member, idx) => (
+            <MemberPhotoCard key={`chair-${idx}`} member={member} badge="Conference Chair" />
+          ))}
+          {committee.conferenceCoChair.map((member, idx) => (
+            <MemberPhotoCard key={`co-chair-${idx}`} member={member} badge="Conference Co-Chair" />
+          ))}
+        </div>
+      </div>
+
+      {/* 4. Organizing Secretaries (Brochure Page 3 exact order 1..6) */}
+      <div className="mb-20">
+        <SectionHeading>Organizing Secretaries</SectionHeading>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+          {committee.organizingSecretaries.map((member, idx) => (
+            <MemberPhotoCard key={idx} member={member} badge="Organizing Secretary" />
+          ))}
+        </div>
+      </div>
+
+      {/* 5. Joint Secretaries (Brochure Page 4 exact order 1..7) */}
+      <NumberedCommitteeGrid 
+        title="Joint Secretaries" 
+        members={committee.jointSecretaries} 
+        columns="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+      />
+
+      {/* 6. Advisory Committees & Student Council (Brochure Pages 4 & 5) */}
+      <div className="mt-24 pt-16 border-t-8 border-foreground">
+        {/* International Advisory Committee (Brochure Page 4, 1..12) */}
+        <NumberedCommitteeGrid 
+          title="International Advisory Committee" 
+          members={committee.internationalAdvisoryCommittee} 
+          columns="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        />
+
+        {/* National Advisory Committee (Brochure Page 5, 1..17) */}
         <div className="border-t border-foreground/20 pt-16 mt-16">
-          <CommitteeBlock title="National Advisory Committee" members={committee.nationalAdvisoryCommittee} />
+          <NumberedCommitteeGrid 
+            title="National Advisory Committee" 
+            members={committee.nationalAdvisoryCommittee} 
+            columns="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          />
+        </div>
+
+        {/* Student Council (Brochure Page 5, 1..10) */}
+        <div className="border-t border-foreground/20 pt-16 mt-16">
+          <StudentCouncilBlock members={committee.studentCouncil} />
         </div>
       </div>
     </div>

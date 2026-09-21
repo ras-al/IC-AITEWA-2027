@@ -22,65 +22,72 @@ export const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-surface border-b-2 border-foreground">
-      <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12">
+    <header className="sticky top-0 z-50 w-full bg-surface border-b-2 border-foreground shadow-sm">
+      <div className="max-w-[105rem] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Brand Logo */}
+          
+          {/* Left Brand: IC-AITEWA Logo Icon Only */}
           <div className="flex-shrink-0 flex items-center z-10">
-            <Link href="/" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center group" title="IC-AITEWA 2027">
               <img 
                 src="/logo-icon.png" 
                 alt="IC-AITEWA Logo" 
-                className="h-11 w-11 object-contain transition-transform duration-200 group-hover:scale-105" 
+                className="h-12 w-12 object-contain transition-transform duration-200 group-hover:scale-105" 
               />
-              <div className="flex flex-col">
-                <span className="font-serif font-bold text-lg sm:text-xl tracking-tight leading-none text-foreground whitespace-nowrap">
-                  IC-AITEWA <span className="text-primary ml-0.5">2027</span>
-                </span>
-                <span className="font-sans text-[9px] uppercase tracking-wider text-foreground/60 font-semibold mt-1 hidden sm:block whitespace-nowrap">
-                  TKMCE Kollam
-                </span>
-              </div>
             </Link>
           </div>
           
           {/* Centered Navigation */}
-          <nav className="hidden xl:flex gap-4 2xl:gap-6 items-center mx-4">
+          <nav className="hidden xl:flex gap-4 2xl:gap-7 items-center justify-center flex-1 mx-6">
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
                 href={link.href}
-                className={`font-sans text-[11px] xl:text-xs font-bold tracking-wider uppercase whitespace-nowrap transition-colors hover:text-primary ${pathname === link.href ? 'text-primary' : 'text-foreground'}`}
+                className={`font-sans text-xs font-bold tracking-wider uppercase whitespace-nowrap transition-colors py-1 hover:text-primary ${pathname === link.href ? 'text-primary' : 'text-foreground'}`}
               >
                 {link.name}
               </Link>
             ))}
           </nav>
 
-          {/* Right Action & Host Institution Logo */}
-          <div className="hidden xl:flex items-center gap-4 z-10">
+          {/* Right Action & Host Institution Logo (after submit button) */}
+          <div className="hidden xl:flex items-center gap-4 z-10 flex-shrink-0">
+            <CTAButton href="/call-for-papers" className="px-5 py-2.5 text-xs whitespace-nowrap">
+              Submit Abstract
+            </CTAButton>
             <Link 
               href="https://tkmce.ac.in" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center gap-2 group/tkm"
-              title="TKM College of Engineering, Kollam"
+              className="flex items-center group/tkm pl-3 border-l-2 border-foreground/15"
+              title="TKM College of Engineering, Kollam, Kerala, India"
             >
               <img 
                 src="/tkm-favicon.png" 
                 alt="TKM College of Engineering" 
-                className="h-9 w-auto object-contain opacity-85 group-hover/tkm:opacity-100 transition-opacity" 
+                className="h-10 w-auto object-contain transition-transform duration-200 group-hover/tkm:scale-105" 
               />
             </Link>
-            <CTAButton href="/call-for-papers" className="px-5 py-2 text-[10px] xl:text-xs whitespace-nowrap">
-              Submit Abstract
-            </CTAButton>
           </div>
 
-          <div className="flex xl:hidden items-center z-10">
+          {/* Mobile View: TKMCE Logo + Hamburger Button */}
+          <div className="flex xl:hidden items-center gap-3 z-10">
+            <Link 
+              href="https://tkmce.ac.in" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center mr-1"
+              title="TKM College of Engineering, Kollam, Kerala, India"
+            >
+              <img 
+                src="/tkm-favicon.png" 
+                alt="TKM College of Engineering" 
+                className="h-9 w-auto object-contain" 
+              />
+            </Link>
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground focus:outline-none p-2"
+              className="text-foreground focus:outline-none p-2 border border-foreground/20 rounded"
               aria-label="Toggle menu"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -95,9 +102,9 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="xl:hidden border-t border-foreground/10 bg-surface">
+        <div className="xl:hidden border-t-2 border-foreground/10 bg-surface shadow-lg">
           <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => (
               <Link
@@ -110,7 +117,7 @@ export const Header = () => {
               </Link>
             ))}
             <div className="pt-4 px-3">
-              <CTAButton href="/call-for-papers" className="w-full">
+              <CTAButton href="/call-for-papers" className="w-full text-center">
                 Submit Abstract
               </CTAButton>
             </div>

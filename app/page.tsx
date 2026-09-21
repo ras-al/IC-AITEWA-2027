@@ -39,7 +39,7 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              Department of Mechanical Engineering, TKMCE
+              Department of Mechanical Engineering, TKMCE, Kollam, Kerala, India
             </span>
           </div>
 
@@ -72,10 +72,16 @@ export default function Home() {
               </p>
             </div>
 
-            <StatCallout
-              stat="March 17, 2027"
-              description="Pre-conference workshops offering hands-on sessions in emerging intelligent technologies."
-            />
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <StatCallout
+                stat="March 17, 2027"
+                description="Pre-conference workshops offering hands-on sessions in emerging intelligent technologies."
+              />
+              <StatCallout
+                stat="Publication"
+                description="Accepted papers will be published in peer-reviewed journals and conference proceedings."
+              />
+            </div>
           </div>
 
           <div className="lg:col-span-4">

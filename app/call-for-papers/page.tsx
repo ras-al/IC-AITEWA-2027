@@ -87,6 +87,13 @@ export default function CallForPapersPage() {
                 </div>
               ))}
             </div>
+            
+            <div className="mt-8 pt-6 border-t border-surface/20">
+              <p className="font-sans text-xs uppercase tracking-widest text-primary font-bold mb-2">Publication</p>
+              <p className="font-sans text-sm text-surface/90 leading-relaxed">
+                Accepted papers will be published in peer-reviewed journals and conference proceedings.
+              </p>
+            </div>
           </div>
         </div>
 

@@ -29,11 +29,15 @@ export default function TracksPage() {
                   Detailed Scope <span className="inline-block transition-transform group-open:rotate-180">▼</span>
                 </summary>
                 <ul className="font-sans text-lg md:text-xl leading-relaxed text-foreground/90 bg-surface border-l-4 border-primary pl-6 py-2 space-y-2 mt-4">
-                  {track.scope.split(', ').map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-primary">•</span> {item}
-                    </li>
-                  ))}
+                  {track.scope.split(', ').map((item, i) => {
+                    const cleanItem = item.trim();
+                    const capitalized = cleanItem.charAt(0).toUpperCase() + cleanItem.slice(1);
+                    return (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-primary">•</span> {capitalized}
+                      </li>
+                    );
+                  })}
                 </ul>
               </details>
             </div>
