@@ -57,10 +57,11 @@ export const Footer = () => {
 
         </div>
         
-        <div className="pt-6 border-t border-dark-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-6 border-t border-dark-foreground/10 flex flex-col gap-4 items-center text-center">
           <p className="font-sans text-xs text-dark-foreground/50">
             &copy; {new Date().getFullYear()} TKM College of Engineering. All rights reserved.
           </p>
+          <p className="font-sans text-[11px] text-dark-foreground/40 max-w-3xl leading-relaxed">The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.</p>
         </div>
       </div>
     </footer>

@@ -81,6 +81,7 @@ const StudentCouncilBlock = ({
   const getBadgeColor = (title: string) => {
     if (title.includes('Head')) return 'bg-primary text-surface';
     if (title.includes('Tech Coordinator')) return 'bg-foreground text-surface';
+    if (title.includes('Research Scholar')) return 'bg-primary/20 text-primary font-bold border border-primary/30';
     return 'bg-foreground/10 text-foreground';
   };
 
@@ -182,7 +183,7 @@ export default function CommitteePage() {
         </div>
       </div>
 
-      {/* 5. Joint Secretaries (Brochure Page 4 exact order 1..7) */}
+      {/* 5. Joint Secretaries (Brochure Page 4) */}
       <NumberedCommitteeGrid 
         title="Joint Secretaries" 
         members={committee.jointSecretaries} 
@@ -191,14 +192,14 @@ export default function CommitteePage() {
 
       {/* 6. Advisory Committees & Student Council (Brochure Pages 4 & 5) */}
       <div className="mt-24 pt-16 border-t-8 border-foreground">
-        {/* International Advisory Committee (Brochure Page 4, 1..12) */}
+        {/* International Advisory Committee (Brochure Page 4) */}
         <NumberedCommitteeGrid 
           title="International Advisory Committee" 
           members={committee.internationalAdvisoryCommittee} 
           columns="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
         />
 
-        {/* National Advisory Committee (Brochure Page 5, 1..17) */}
+        {/* National Advisory Committee (Brochure Page 5) */}
         <div className="border-t border-foreground/20 pt-16 mt-16">
           <NumberedCommitteeGrid 
             title="National Advisory Committee" 
@@ -207,7 +208,7 @@ export default function CommitteePage() {
           />
         </div>
 
-        {/* Student Council (Brochure Page 5, 1..10) */}
+        {/* Student Council (Brochure Page 5) */}
         <div className="border-t border-foreground/20 pt-16 mt-16">
           <StudentCouncilBlock members={committee.studentCouncil} />
         </div>

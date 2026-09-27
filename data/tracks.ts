@@ -7,7 +7,7 @@ export const tracks = [
   {
     code: 'Track B',
     focus: 'Sustainable Energy Technologies',
-    scope: 'Renewable energy grid integration, Smart grid technologies, Hydrogen energy systems, Carbon-neutral innovations, Solar and thermal energy conversion, Decentralized power systems',
+    scope: 'Renewable energy grid integration, Smart grid technologies, Hydrogen energy systems, Carbon-neutral innovations, Solar and thermal energy conversion, Decentralized power systems, Solar cooling, heating, power generation',
   },
   {
     code: 'Track C',
@@ -22,6 +22,6 @@ export const tracks = [
   {
     code: 'Track E',
     focus: 'Smart Materials and Advanced Engineering',
-    scope: 'Synthesis of smart and adaptive materials, Advanced structural engineering, Computational solid mechanics, Micro- and nano-materials, Sustainable building systems',
+    scope: 'Synthesis of smart and adaptive materials, Advanced structural engineering, Computational solid mechanics, Micro- and nano-materials, Sustainable building systems, composites, alloys, materials characteristics',
   },
 ];

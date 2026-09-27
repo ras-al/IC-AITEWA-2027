@@ -52,41 +52,40 @@ export default function ContactPage() {
       day: "numeric",
     });
 
+    const metaLines = [
+      `Category: ${category}`,
+      paperId ? `Paper ID / Reference: ${paperId}` : null,
+      customSubject ? `Subject: ${customSubject}` : null,
+      `Date of Request: ${currentDate}`,
+    ].filter(Boolean).join("\n");
+
+    const senderLines = [
+      fullName,
+      affiliation !== "Not specified" ? affiliation : null,
+      `${email}${phone !== "Not specified" ? ` | Tel: ${phone}` : ""}`,
+    ].filter(Boolean).join("\n");
+
     const emailBody =
-      `To:
+`To:
 The Organizing Committee & Conference Secretariat
 International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027)
 Department of Mechanical Engineering, TKM College of Engineering
 Kollam, Kerala, India - 691005
 Official Email: icaitewa27@tkmce.ac.in | Website: https://IC-AITEWA-2027.tkmce.ac.in
 
-Respected Organizing Chairs & Committee Members,
-
 Greetings.
-
 I am writing to formally submit an inquiry regarding the upcoming International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027), organized by the Department of Mechanical Engineering, TKM College of Engineering, Kollam, in association with Sophia University, Tokyo, Japan (March 18–20, 2027).
 
-Category: ${category}
-${paperId ? `Paper ID / Reference: ${paperId}\r\n` : ""}${customSubject ? `Subject: ${customSubject}\r\n` : ""}Date of Request: ${currentDate}
+${metaLines}
 
 Query / Message:
-
 ${message}
 
-
-Full Name: ${fullName}
-Designation & Institution: ${affiliation}
-Official Email: ${email}
-Contact Number: ${phone}
-
 Kindly review the above query and share the relevant details or guidance at your earliest convenience.
-
 Thank you very much for your time and assistance.
 
-Respectfully yours,
-
-${fullName}
-${affiliation !== "Not specified" ? `${affiliation}\r\n` : ""}${email}${phone !== "Not specified" ? ` | Tel: ${phone}` : ""}`;
+Regards,
+${senderLines}`;
 
     const encodedSubject = encodeURIComponent(emailSubject);
     const encodedBody = encodeURIComponent(emailBody);

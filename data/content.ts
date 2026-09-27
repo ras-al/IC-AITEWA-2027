@@ -13,14 +13,14 @@ export const content = {
   },
   contacts: [
     {
-      name: 'Dr. Baiju V',
+      name: 'Dr. Baiju V.',
       designation: 'Associate Professor, Department of Mechanical Engineering',
       role: 'Organizing Secretary',
       email: 'baiju@tkmce.ac.in',
       phone: '+91 9895937476',
     },
     {
-      name: 'Dr. Jesna Mohamed',
+      name: 'Dr. Jesna Mohammed',
       designation: 'Associate Professor, Department of Mechanical Engineering',
       role: 'Organizing Secretary',
       email: 'jesnamohammed@tkmce.ac.in',
