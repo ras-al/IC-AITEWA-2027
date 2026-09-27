@@ -80,10 +80,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://ic-aitewa-2027.tkmce.ac.in",
   },
-  // TODO: Replace with your actual Google Search Console verification code
-  // verification: {
-  //   google: "YOUR_GOOGLE_VERIFICATION_CODE",
-  // },
+  verification: {
+    google: "MjQ03pgdmmWgmraZDbj8_LDA0Dvt4TFPfesgjEIQAH0",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
