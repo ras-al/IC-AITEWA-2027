@@ -17,8 +17,73 @@ const workSans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "IC-AITEWA 2027 | TKM College of Engineering",
-  description: "International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation. Hosted by TKM College of Engineering, Kollam.",
+  metadataBase: new URL("https://ic-aitewa-2027.tkmce.ac.in"),
+  title: {
+    default: "IC-AITEWA 2027 | TKM College of Engineering",
+    template: "%s | IC-AITEWA 2027",
+  },
+  description:
+    "International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027). Hosted by TKM College of Engineering, Kollam, Kerala, India.",
+  keywords: [
+    "IC-AITEWA 2027",
+    "international conference",
+    "artificial intelligence",
+    "intelligent technologies",
+    "energy",
+    "water",
+    "automation",
+    "TKM College of Engineering",
+    "Kollam",
+    "Kerala",
+    "India",
+    "AI conference",
+    "machine learning",
+    "deep learning",
+    "IEEE conference",
+  ],
+  authors: [{ name: "TKM College of Engineering" }],
+  openGraph: {
+    title: "IC-AITEWA 2027 | TKM College of Engineering",
+    description:
+      "International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation. Hosted by TKM College of Engineering, Kollam.",
+    url: "https://ic-aitewa-2027.tkmce.ac.in",
+    siteName: "IC-AITEWA 2027",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "IC-AITEWA 2027 Conference",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IC-AITEWA 2027 | TKM College of Engineering",
+    description:
+      "International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation.",
+    images: ["/logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://ic-aitewa-2027.tkmce.ac.in",
+  },
+  // TODO: Replace with your actual Google Search Console verification code
+  // verification: {
+  //   google: "YOUR_GOOGLE_VERIFICATION_CODE",
+  // },
   icons: {
     icon: [
       { url: "/favicon.ico" },
