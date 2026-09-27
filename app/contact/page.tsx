@@ -5,6 +5,40 @@ import { useState } from "react";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { content } from "@/data/content";
 
+const redLabels = ["Category:", "Paper ID / Reference:", "Subject:", "Date of Request:"];
+
+const EmailPreview = ({ body }: { body: string }) => {
+  const lines = body.split("\n");
+  return (
+    <div className="whitespace-pre-wrap">
+      {lines.map((line, i) => {
+        // Yellow highlight for "Query / Message:"
+        if (line.startsWith("Query / Message:")) {
+          return (
+            <div key={i}>
+              <span className="bg-yellow-300/80 text-foreground font-bold px-0.5">{line}</span>
+              {"\n"}
+            </div>
+          );
+        }
+        // Red-colored metadata labels
+        const matchedLabel = redLabels.find((label) => line.startsWith(label));
+        if (matchedLabel) {
+          const rest = line.slice(matchedLabel.length);
+          return (
+            <div key={i}>
+              <span className="text-red-600 font-bold">{matchedLabel}</span>
+              {rest}
+              {"\n"}
+            </div>
+          );
+        }
+        return <span key={i}>{line}{"\n"}</span>;
+      })}
+    </div>
+  );
+};
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -181,11 +215,11 @@ ${preparedEmail.body}`
                   <span className="font-sans text-xs font-bold uppercase tracking-wider text-primary">Drafted Academic Letter Preview</span>
                   <span className="font-sans text-xs text-foreground/60">To: icaitewa27@tkmce.ac.in</span>
                 </div>
-                <div className="bg-surface border border-foreground/20 p-4 max-h-64 overflow-y-auto font-mono text-xs text-foreground/90 whitespace-pre-wrap leading-relaxed">
+                <div className="bg-surface border border-foreground/20 p-4 max-h-80 overflow-y-auto font-mono text-xs text-foreground/90 leading-relaxed">
                   <div className="font-bold text-foreground mb-2 pb-2 border-b border-foreground/10">
                     Subject: {preparedEmail.subject}
                   </div>
-                  {preparedEmail.body}
+                  <EmailPreview body={preparedEmail.body} />
                 </div>
               </div>
 

@@ -5,14 +5,14 @@ export const Footer = () => {
     <footer className="bg-dark-section text-dark-foreground pt-12 pb-8 border-t-4 border-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 mb-12">
-          
+
           <div className="md:col-span-5">
             <div className="mb-6">
               <Link href="/" className="inline-block group">
-                <img 
-                  src="/ai_aictc.png" 
-                  alt="IC-AITEWA 2027 Conference Logo" 
-                  className="w-48 sm:w-56 h-auto object-contain transition-opacity group-hover:opacity-90" 
+                <img
+                  src="/ai_aictc.png"
+                  alt="IC-AITEWA 2027 Conference Logo"
+                  className="w-48 sm:w-56 h-auto object-contain transition-opacity group-hover:opacity-90"
                 />
               </Link>
             </div>
@@ -20,10 +20,10 @@ export const Footer = () => {
               International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation
             </p>
             <div className="flex items-center gap-3 pt-2 border-t border-dark-foreground/10">
-              <img 
-                src="/tkm-favicon.png" 
-                alt="TKM College of Engineering" 
-                className="h-10 w-auto object-contain bg-white rounded-full p-1 shrink-0" 
+              <img
+                src="/tkm-favicon.png"
+                alt="TKM College of Engineering"
+                className="h-10 w-auto object-contain bg-white rounded-full p-1 shrink-0"
               />
               <div>
                 <p className="font-sans text-xs font-bold text-primary">18–20 March 2027</p>
@@ -36,9 +36,9 @@ export const Footer = () => {
             <h4 className="font-sans text-xs font-bold tracking-widest uppercase mb-4 text-dark-foreground/50">Organized By</h4>
             <p className="font-serif font-bold text-base mb-1">Department of Mechanical Engineering</p>
             <p className="font-sans text-sm leading-relaxed text-dark-foreground/80 mb-6">
-              TKM College of Engineering, Kerala
+              TKM College of Engineering, Kerala, India
             </p>
-            
+
             <h4 className="font-sans text-xs font-bold tracking-widest uppercase mb-2 text-dark-foreground/50">In Association With</h4>
             <p className="font-serif font-bold text-base">Sophia University</p>
             <p className="font-sans text-sm text-dark-foreground/80">Tokyo, Japan</p>
@@ -56,7 +56,7 @@ export const Footer = () => {
           </div>
 
         </div>
-        
+
         <div className="pt-6 border-t border-dark-foreground/10 flex flex-col gap-4 items-center text-center">
           <p className="font-sans text-xs text-dark-foreground/50">
             &copy; {new Date().getFullYear()} TKM College of Engineering. All rights reserved.

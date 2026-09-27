@@ -41,7 +41,7 @@ const MemberPhotoCard = ({ member, badge }: MemberCardProps) => (
   </div>
 );
 
-const NumberedCommitteeGrid = ({ 
+const CommitteeGrid = ({ 
   title, 
   members,
   columns = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
@@ -56,17 +56,12 @@ const NumberedCommitteeGrid = ({
       {members.map((member, idx) => (
         <div 
           key={idx} 
-          className="bg-surface border-2 border-foreground p-6 shadow-[6px_6px_0_0_#1C1712] hover:-translate-y-0.5 transition-transform duration-200 flex items-start gap-4"
+          className="bg-surface border-2 border-foreground p-6 shadow-[6px_6px_0_0_#1C1712] hover:-translate-y-0.5 transition-transform duration-200 flex flex-col justify-between"
         >
-          <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-foreground/5 border border-foreground/20 font-sans text-xs font-bold text-primary shrink-0">
-            {idx + 1}
-          </span>
-          <div className="flex flex-col justify-between flex-1">
-            <p className="font-serif font-bold text-lg md:text-xl text-foreground mb-1">{member.name}</p>
-            <p className="font-sans text-xs sm:text-sm text-foreground/80 font-medium leading-relaxed">
-              {member.title}
-            </p>
-          </div>
+          <p className="font-serif font-bold text-lg md:text-xl text-foreground mb-1">{member.name}</p>
+          <p className="font-sans text-xs sm:text-sm text-foreground/80 font-medium leading-relaxed">
+            {member.title}
+          </p>
         </div>
       ))}
     </div>
@@ -100,12 +95,9 @@ const StudentCouncilBlock = ({
               className="bg-surface border-2 border-foreground p-6 shadow-[6px_6px_0_0_#1C1712] hover:-translate-y-1 transition-transform duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between gap-2 mb-3">
+                <div className="flex items-center gap-2 mb-3">
                   <span className={`inline-block font-sans text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 ${getBadgeColor(role)}`}>
                     {role}
-                  </span>
-                  <span className="font-sans text-xs font-bold text-foreground/40">
-                    #{idx + 1}
                   </span>
                 </div>
                 <p className="font-serif font-bold text-lg text-foreground mb-1">{member.name}</p>
@@ -184,7 +176,7 @@ export default function CommitteePage() {
       </div>
 
       {/* 5. Joint Secretaries (Brochure Page 4) */}
-      <NumberedCommitteeGrid 
+      <CommitteeGrid 
         title="Joint Secretaries" 
         members={committee.jointSecretaries} 
         columns="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
@@ -193,7 +185,7 @@ export default function CommitteePage() {
       {/* 6. Advisory Committees & Student Council (Brochure Pages 4 & 5) */}
       <div className="mt-24 pt-16 border-t-8 border-foreground">
         {/* International Advisory Committee (Brochure Page 4) */}
-        <NumberedCommitteeGrid 
+        <CommitteeGrid 
           title="International Advisory Committee" 
           members={committee.internationalAdvisoryCommittee} 
           columns="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
@@ -201,7 +193,7 @@ export default function CommitteePage() {
 
         {/* National Advisory Committee (Brochure Page 5) */}
         <div className="border-t border-foreground/20 pt-16 mt-16">
-          <NumberedCommitteeGrid 
+          <CommitteeGrid 
             title="National Advisory Committee" 
             members={committee.nationalAdvisoryCommittee} 
             columns="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
