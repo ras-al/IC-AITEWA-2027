@@ -37,6 +37,48 @@ export default function CallForPapersPage() {
                 </ul>
               </div>
 
+              {/* Online Submission via Microsoft CMT */}
+              <div className="border-2 border-primary bg-primary/5 p-8 shadow-[8px_8px_0_0_#C1502E]">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="bg-primary text-white font-sans text-xs font-bold uppercase tracking-wider px-2.5 py-1">Submission Portal</span>
+                  <span className="font-sans text-xs font-bold text-primary uppercase tracking-widest">Microsoft CMT</span>
+                </div>
+                <h3 className="font-serif text-2xl font-bold mb-3 text-foreground">Where &amp; How to Submit</h3>
+                <p className="font-sans text-base text-foreground/80 leading-relaxed mb-6">
+                  All manuscripts and extended abstracts must be submitted electronically through the <strong>Microsoft Conference Management Toolkit (CMT)</strong> submission platform.
+                </p>
+
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-sans text-xs font-bold shrink-0 mt-0.5">1</span>
+                    <p className="font-sans text-sm text-foreground/90">
+                      <strong>Access Portal:</strong> Visit the official IC-AITEWA 2027 Microsoft CMT conference management portal.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-sans text-xs font-bold shrink-0 mt-0.5">2</span>
+                    <p className="font-sans text-sm text-foreground/90">
+                      <strong>Sign In / Register:</strong> Log in with your existing Microsoft CMT credentials or create a new author account.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-sans text-xs font-bold shrink-0 mt-0.5">3</span>
+                    <p className="font-sans text-sm text-foreground/90">
+                      <strong>Create Submission:</strong> Select your relevant Technical Track (Tracks A–G), provide metadata, and upload your anonymized PDF file.
+                    </p>
+                  </div>
+                </div>
+
+                <a
+                  href="https://cmt3.research.microsoft.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary text-white font-sans text-xs font-bold uppercase tracking-wider hover:bg-primary-hover transition-colors shadow-sm"
+                >
+                  Go to Microsoft CMT Submission Portal →
+                </a>
+              </div>
+
               <div className="bg-primary/10 border-l-8 border-primary p-6">
                 <p className="font-sans font-bold text-lg text-primary mb-2">Important Notice for Authors</p>
                 <p className="font-sans text-base text-foreground/90">
@@ -99,7 +141,17 @@ export default function CallForPapersPage() {
 
       </div>
 
-      <p className="font-sans text-xs text-foreground/50 text-center mt-16 max-w-3xl mx-auto leading-relaxed">The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.</p>
+      {/* Microsoft CMT Acknowledgment Callout */}
+      <div className="mt-16 p-6 sm:p-8 border-2 border-primary/40 bg-surface shadow-[8px_8px_0_0_#C1502E] max-w-4xl mx-auto">
+        <div className="flex items-center justify-center gap-2 mb-3">
+          <span className="h-2 w-2 rounded-full bg-primary"></span>
+          <h4 className="font-sans font-bold text-xs uppercase tracking-widest text-primary text-center">
+            Microsoft CMT Acknowledgment
+          </h4>
+          <span className="h-2 w-2 rounded-full bg-primary"></span>
+        </div>
+        <p className="font-sans text-xs sm:text-sm text-foreground text-center leading-relaxed">The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.</p>
+      </div>
     </div>
   );
 }

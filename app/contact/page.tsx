@@ -5,7 +5,16 @@ import { useState } from "react";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { content } from "@/data/content";
 
-const redLabels = ["Category:", "Paper ID / Reference:", "Subject:", "Date of Request:"];
+const redLabels = [
+  "Category:",
+  "Paper ID / Reference:",
+  "Subject:",
+  "Date of Request:",
+  "**Category:**",
+  "**Paper ID / Reference:**",
+  "**Subject:**",
+  "**Date of Request:**",
+];
 
 const EmailPreview = ({ body }: { body: string }) => {
   const lines = body.split("\n");
@@ -13,10 +22,16 @@ const EmailPreview = ({ body }: { body: string }) => {
     <div className="whitespace-pre-wrap">
       {lines.map((line, i) => {
         // Yellow highlight for "Query / Message:"
-        if (line.startsWith("Query / Message:")) {
+        if (
+          line.startsWith("Query / Message:") ||
+          line.startsWith("**Query / Message:**") ||
+          line.startsWith("**QUERY / MESSAGE:**")
+        ) {
           return (
-            <div key={i}>
-              <span className="bg-yellow-300/80 text-foreground font-bold px-0.5">{line}</span>
+            <div key={i} className="my-1">
+              <span className="bg-yellow-300 text-[#1C1712] font-bold px-1.5 py-0.5 rounded-sm shadow-xs">
+                {line.replace(/\*\*/g, "")}
+              </span>
               {"\n"}
             </div>
           );
@@ -25,10 +40,11 @@ const EmailPreview = ({ body }: { body: string }) => {
         const matchedLabel = redLabels.find((label) => line.startsWith(label));
         if (matchedLabel) {
           const rest = line.slice(matchedLabel.length);
+          const cleanLabel = matchedLabel.replace(/\*\*/g, "");
           return (
-            <div key={i}>
-              <span className="text-red-600 font-bold">{matchedLabel}</span>
-              {rest}
+            <div key={i} className="leading-snug">
+              <span className="text-red-600 font-bold">{cleanLabel}</span>
+              <span className="font-semibold text-foreground">{rest}</span>
               {"\n"}
             </div>
           );
@@ -55,6 +71,7 @@ export default function ContactPage() {
   const [preparedEmail, setPreparedEmail] = useState({
     subject: "",
     body: "",
+    htmlBody: "",
     mailtoUrl: "",
     gmailUrl: "",
   });
@@ -87,10 +104,10 @@ export default function ContactPage() {
     });
 
     const metaLines = [
-      `Category: ${category}`,
-      paperId ? `Paper ID / Reference: ${paperId}` : null,
-      customSubject ? `Subject: ${customSubject}` : null,
-      `Date of Request: ${currentDate}`,
+      `**Category:** ${category}`,
+      paperId ? `**Paper ID / Reference:** ${paperId}` : null,
+      customSubject ? `**Subject:** ${customSubject}` : null,
+      `**Date of Request:** ${currentDate}`,
     ].filter(Boolean).join("\n");
 
     const senderLines = [
@@ -112,7 +129,7 @@ I am writing to formally submit an inquiry regarding the upcoming International 
 
 ${metaLines}
 
-Query / Message:
+**Query / Message:**
 ${message}
 
 Kindly review the above query and share the relevant details or guidance at your earliest convenience.
@@ -120,6 +137,43 @@ Thank you very much for your time and assistance.
 
 Regards,
 ${senderLines}`;
+
+    // Build HTML version with colored and bold labels for rich-text clipboard copy
+    const htmlMetaLines = [
+      `<strong style="color:#dc2626;font-weight:bold">Category:</strong> <b>${category}</b>`,
+      paperId ? `<strong style="color:#dc2626;font-weight:bold">Paper ID / Reference:</strong> <b>${paperId}</b>` : null,
+      customSubject ? `<strong style="color:#dc2626;font-weight:bold">Subject:</strong> <b>${customSubject}</b>` : null,
+      `<strong style="color:#dc2626;font-weight:bold">Date of Request:</strong> <b>${currentDate}</b>`,
+    ].filter(Boolean).join("<br>");
+
+    const htmlSenderLines = [
+      `<b>${fullName}</b>`,
+      affiliation !== "Not specified" ? affiliation : null,
+      `${email}${phone !== "Not specified" ? ` | Tel: ${phone}` : ""}`,
+    ].filter(Boolean).join("<br>");
+
+    const htmlBody = `<div style="font-family:monospace,sans-serif;font-size:13px;line-height:1.6;color:#1C1712">
+<p>To:<br>
+<strong>The Organizing Committee &amp; Conference Secretariat</strong><br>
+International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027)<br>
+Department of Mechanical Engineering, TKM College of Engineering<br>
+Kollam, Kerala, India - 691005<br>
+Official Email: icaitewa27@tkmce.ac.in | Website: https://IC-AITEWA-2027.tkmce.ac.in</p>
+
+<p>Greetings.<br>
+I am writing to formally submit an inquiry regarding the upcoming International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027), organized by the Department of Mechanical Engineering, TKM College of Engineering, Kollam, in association with Sophia University, Tokyo, Japan (March 18–20, 2027).</p>
+
+<p>${htmlMetaLines}</p>
+
+<p><span style="background-color:#fde047;color:#1C1712;font-weight:bold;padding:2px 6px;border-radius:2px">Query / Message:</span><br>
+${message.replace(/\n/g, "<br>")}</p>
+
+<p>Kindly review the above query and share the relevant details or guidance at your earliest convenience.<br>
+Thank you very much for your time and assistance.</p>
+
+<p>Regards,<br>
+${htmlSenderLines}</p>
+</div>`;
 
     const encodedSubject = encodeURIComponent(emailSubject);
     const encodedBody = encodeURIComponent(emailBody);
@@ -130,6 +184,7 @@ ${senderLines}`;
     setPreparedEmail({
       subject: emailSubject,
       body: emailBody,
+      htmlBody,
       mailtoUrl,
       gmailUrl,
     });
@@ -147,15 +202,27 @@ ${senderLines}`;
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(
-        `Subject: ${preparedEmail.subject}
-
-${preparedEmail.body}`
-      );
+      // Copy rich HTML so pasting into Gmail/Outlook keeps the colors
+      const htmlContent = `<div style="font-family:monospace;font-size:13px"><p style="font-weight:bold">Subject: ${preparedEmail.subject}</p>${preparedEmail.htmlBody}</div>`;
+      const blob = new Blob([htmlContent], { type: "text/html" });
+      const textBlob = new Blob([`Subject: ${preparedEmail.subject}\n\n${preparedEmail.body}`], { type: "text/plain" });
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          "text/html": blob,
+          "text/plain": textBlob,
+        }),
+      ]);
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
+    } catch {
+      // Fallback to plain text copy
+      try {
+        await navigator.clipboard.writeText(`Subject: ${preparedEmail.subject}\n\n${preparedEmail.body}`);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 3000);
+      } catch (err) {
+        console.error("Failed to copy: ", err);
+      }
     }
   };
 
@@ -205,8 +272,16 @@ ${preparedEmail.body}`
                   onClick={handleCopy}
                   className="sm:col-span-2 inline-flex items-center justify-center px-4 py-3 border-2 border-foreground bg-surface text-foreground text-xs font-bold uppercase tracking-wider hover:bg-foreground hover:text-surface transition-colors text-center"
                 >
-                  {copied ? "✓ Copied to Clipboard!" : "Copy Formatted Letter"}
+                  {copied ? "✓ Copied to Clipboard (with Colors & Bold)!" : "Copy Formatted Letter (with Colors & Bold)"}
                 </button>
+              </div>
+
+              {/* Formatting guidance tip */}
+              <div className="bg-primary/5 border border-primary/20 p-3.5 text-xs text-foreground/80 leading-relaxed flex items-start gap-2.5">
+                <span className="text-primary font-bold text-sm shrink-0">💡</span>
+                <p>
+                  <strong>Tip:</strong> Direct mail app links use <strong>bold text tags</strong> (as mail clients do not accept colored text via URL). To send with full <strong>red labels and yellow highlight</strong> exactly as previewed, click <strong>&quot;Copy Formatted Letter&quot;</strong> and paste (<kbd className="font-mono bg-foreground/10 px-1 py-0.5 rounded text-[11px]">Ctrl+V</kbd>) into your compose box.
+                </p>
               </div>
 
               {/* Email Preview */}
