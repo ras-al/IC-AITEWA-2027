@@ -117,8 +117,8 @@ export default function ContactPage() {
     ].filter(Boolean).join("\n");
 
     const emailBody =
-`To:
-The Organizing Committee & Conference Secretariat
+      `To:
+The Organizing Committee
 International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027)
 Department of Mechanical Engineering, TKM College of Engineering
 Kollam, Kerala, India - 691005
@@ -154,7 +154,7 @@ ${senderLines}`;
 
     const htmlBody = `<div style="font-family:monospace,sans-serif;font-size:13px;line-height:1.6;color:#1C1712">
 <p>To:<br>
-<strong>The Organizing Committee &amp; Conference Secretariat</strong><br>
+<strong>The Organizing Committee</strong><br>
 International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027)<br>
 Department of Mechanical Engineering, TKM College of Engineering<br>
 Kollam, Kerala, India - 691005<br>
@@ -306,7 +306,7 @@ ${htmlSenderLines}</p>
                 >
                   ← Edit or Send Another Message
                 </button>
-                <span className="text-foreground/60">IC-AITEWA 2027 Secretariat</span>
+                <span className="text-foreground/60">IC-AITEWA 2027</span>
               </div>
             </div>
           ) : (
