@@ -2,8 +2,14 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { fees } from "@/data/fees";
 
 export const metadata = {
-  title: "Registration | IC-AITEWA 2027",
-  description: "Registration fees, inclusions, and publication pathways.",
+  title: "Registration Fees & Guidelines | TKM Conference (IC-AITEWA 2027 / AITEWA)",
+  description: "Registration fees, delegate categories, early-bird discounts, and publication inclusions for IC-AITEWA 2027 (TKM Conference / AITEWA / AITHWA) at TKM College of Engineering.",
+  keywords: [
+    "tkm conference registration",
+    "aithwa registration fees",
+    "aitewa conference register",
+    "tkmce conference fees",
+  ],
 };
 
 export default function RegistrationPage() {

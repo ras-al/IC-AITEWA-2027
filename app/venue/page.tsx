@@ -1,8 +1,14 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata = {
-  title: "Venue & Travel | IC-AITEWA 2027",
-  description: "Location, travel instructions, and accommodation for IC-AITEWA 2027.",
+  title: "Venue & Travel | TKM College of Engineering | IC-AITEWA 2027",
+  description: "Travel directions, location, and campus details for TKM College of Engineering (TKMCE), Karicode, Kollam, Kerala for IC-AITEWA 2027 (TKM Conference / AITEWA / AITHWA).",
+  keywords: [
+    "tkm conference venue",
+    "tkm college of engineering location",
+    "how to reach tkmce kollam",
+    "ic aitewa venue",
+  ],
 };
 
 export default function VenuePage() {

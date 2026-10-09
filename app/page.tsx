@@ -165,7 +165,7 @@ export default function Home() {
           <div className="shrink-0 w-36 sm:w-44 p-4 bg-surface border-2 border-foreground/20 rounded-xl shadow-sm flex items-center justify-center">
             <img
               src="/black_ai_aictc.png"
-              alt="IC-AITEWA 2027 Publication Seal"
+              alt="IC-AITEWA 2027 - TKM Conference Official Seal"
               className="w-full h-auto object-contain"
             />
           </div>
@@ -173,7 +173,7 @@ export default function Home() {
             <span className="inline-block font-sans text-xs font-bold uppercase tracking-widest text-primary mb-2">Official Document</span>
             <h3 className="font-serif text-2xl sm:text-3xl font-bold mb-4">Download Conference Brochure</h3>
             <p className="font-sans text-base sm:text-lg text-foreground/80 mb-6 leading-relaxed">
-              Get comprehensive details about conference themes, submission guidelines, important dates, and organizing committees in our official brochure.
+              Get comprehensive details about conference tracks, submission guidelines, important dates, and committees in the official IC-AITEWA 2027 brochure.
             </p>
             <CTAButton href="/IC-AITEWA.pdf" variant="outline" className="border-foreground hover:bg-foreground hover:text-surface px-8 py-3">
               Download Brochure (PDF)

@@ -2,8 +2,15 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { committee, CommitteeMember } from "@/data/committee";
 
 export const metadata = {
-  title: "Committee | IC-AITEWA 2027",
-  description: "Organizing Committee, International & National Advisory Boards, and Student Council for IC-AITEWA 2027.",
+  title: "Organizing Committee | TKM Conference (IC-AITEWA 2027 / AITEWA / AITHWA)",
+  description: "Organizing Committee, International Advisory Committee, National Advisory Committee, and Student Council for IC-AITEWA 2027 (TKM Conference / AITEWA / AITHWA) at TKM College of Engineering.",
+  keywords: [
+    "tkm conference committee",
+    "aithwa advisory committee",
+    "aitewa committee",
+    "tkmce conference organizers",
+    "ic aitewa committee 2027",
+  ],
 };
 
 interface MemberCardProps {

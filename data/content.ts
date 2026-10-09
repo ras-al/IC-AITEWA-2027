@@ -7,7 +7,7 @@ export const content = {
     preConferenceDates: '17 March 2027',
     venue: 'TKM College of Engineering, Karicode, Kollam, Kerala, India (A Govt. Aided and Autonomous Institution)',
     organizer: 'Department of Mechanical Engineering, TKM College of Engineering, Kollam, Kerala, India',
-    inAssociationWith: 'Sophia University, Tokyo, Japan',
+    inAssociationWith: 'Department of Computer Science & Engineering and Department of Chemical Engineering, TKM College of Engineering',
     email: 'icaitewa27@tkmce.ac.in',
     website: 'https://IC-AITEWA-2027.tkmce.ac.in',
   },

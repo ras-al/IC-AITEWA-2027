@@ -125,7 +125,7 @@ Kollam, Kerala, India - 691005
 Official Email: icaitewa27@tkmce.ac.in | Website: https://IC-AITEWA-2027.tkmce.ac.in
 
 Greetings.
-I am writing to formally submit an inquiry regarding the upcoming International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027), organized by the Department of Mechanical Engineering, TKM College of Engineering, Kollam, in association with Sophia University, Tokyo, Japan (March 18–20, 2027).
+I am writing to formally submit an inquiry regarding the upcoming International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027), organized by the Department of Mechanical Engineering, TKM College of Engineering, Kollam, in association with the Department of Computer Science and Engineering and the Department of Chemical Engineering, TKM College of Engineering (March 18–20, 2027).
 
 ${metaLines}
 
@@ -161,7 +161,7 @@ Kollam, Kerala, India - 691005<br>
 Official Email: icaitewa27@tkmce.ac.in | Website: https://IC-AITEWA-2027.tkmce.ac.in</p>
 
 <p>Greetings.<br>
-I am writing to formally submit an inquiry regarding the upcoming International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027), organized by the Department of Mechanical Engineering, TKM College of Engineering, Kollam, in association with Sophia University, Tokyo, Japan (March 18–20, 2027).</p>
+I am writing to formally submit an inquiry regarding the upcoming International Conference on Artificial Intelligence and Intelligent Technologies for Energy, Water and Automation (IC-AITEWA 2027), organized by the Department of Mechanical Engineering, TKM College of Engineering, Kollam, in association with the Department of Computer Science and Engineering and the Department of Chemical Engineering, TKM College of Engineering (March 18–20, 2027).</p>
 
 <p>${htmlMetaLines}</p>
 

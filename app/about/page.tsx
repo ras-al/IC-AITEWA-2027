@@ -1,8 +1,14 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata = {
-  title: "About | IC-AITEWA 2027",
-  description: "Learn about the vision of IC-AITEWA 2027, Department of Mechanical Engineering, and TKM College of Engineering.",
+  title: "About the Conference | TKM Conference (IC-AITEWA 2027 / AITEWA / AITHWA)",
+  description: "About IC-AITEWA 2027 (TKM Conference / AITEWA / AITHWA) — Hosted by TKM College of Engineering (TKMCE), Kollam, in association with the Department of Computer Science & Engineering and Department of Chemical Engineering.",
+  keywords: [
+    "tkm conference about",
+    "aithwa conference about",
+    "aitewa 2027 details",
+    "tkmce international conference",
+  ],
 };
 
 export default function AboutPage() {

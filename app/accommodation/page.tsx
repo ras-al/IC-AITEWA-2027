@@ -1,8 +1,13 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata = {
-  title: "Accommodation | IC-AITEWA 2027",
-  description: "Accommodation, transport, and travel details for IC-AITEWA 2027.",
+  title: "Accommodation | TKM Conference (IC-AITEWA 2027 / AITEWA / AITHWA)",
+  description: "Suggested hotel accommodations, tariffs, and travel options for delegates attending IC-AITEWA 2027 (TKM Conference / AITEWA / AITHWA) in Kollam, Kerala.",
+  keywords: [
+    "tkm conference accommodation",
+    "hotels near tkmce kollam",
+    "ic aitewa accommodation",
+  ],
 };
 
 export default function AccommodationPage() {

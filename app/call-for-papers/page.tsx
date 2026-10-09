@@ -2,8 +2,15 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { dates } from "@/data/dates";
 
 export const metadata = {
-  title: "Call for Papers | IC-AITEWA 2027",
-  description: "Submission guidelines, formats, and important dates for authors.",
+  title: "Call for Papers | TKM Conference (IC-AITEWA 2027 / AITEWA / AITHWA)",
+  description: "Call for Papers for IC-AITEWA 2027 (TKM Conference / AITEWA / AITHWA). Extended abstract submissions open via Microsoft CMT. Review guidelines, double-blind review process, and deadlines.",
+  keywords: [
+    "tkm conference call for papers",
+    "aithwa call for papers",
+    "aitewa paper submission",
+    "tkmce conference submission",
+    "IC-AITEWA 2027 abstract submission",
+  ],
 };
 
 export default function CallForPapersPage() {

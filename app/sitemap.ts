@@ -3,60 +3,61 @@ import type { MetadataRoute } from 'next'
 const BASE_URL = 'https://ic-aitewa-2027.tkmce.ac.in'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date()
   return [
     {
       url: BASE_URL,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${BASE_URL}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 1.0,
     },
     {
       url: `${BASE_URL}/call-for-papers`,
-      lastModified: new Date(),
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/tracks`,
+      lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/tracks`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      url: `${BASE_URL}/registration`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
     },
     {
       url: `${BASE_URL}/committee`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
     },
     {
-      url: `${BASE_URL}/registration`,
-      lastModified: new Date(),
+      url: `${BASE_URL}/about`,
+      lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/venue`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.75,
     },
     {
       url: `${BASE_URL}/accommodation`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
     },
     {
       url: `${BASE_URL}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
     },
   ]
 }

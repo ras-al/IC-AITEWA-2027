@@ -36,12 +36,17 @@ export const Footer = () => {
             <h4 className="font-sans text-xs font-bold tracking-widest uppercase mb-4 text-dark-foreground/50">Organized By</h4>
             <p className="font-serif font-bold text-base mb-1">Department of Mechanical Engineering</p>
             <p className="font-sans text-sm leading-relaxed text-dark-foreground/80 mb-6">
-              TKM College of Engineering, Kerala, India
+              TKM College of Engineering, Kollam, Kerala, India
             </p>
 
             <h4 className="font-sans text-xs font-bold tracking-widest uppercase mb-2 text-dark-foreground/50">In Association With</h4>
-            <p className="font-serif font-bold text-base">Sophia University</p>
-            <p className="font-sans text-sm text-dark-foreground/80">Tokyo, Japan</p>
+            <p className="font-serif font-bold text-base leading-snug mb-1">
+              Department of Computer Science and Engineering &amp;<br />
+              Department of Chemical Engineering
+            </p>
+            <p className="font-sans text-sm text-dark-foreground/80">
+              TKM College of Engineering
+            </p>
           </div>
 
           <div className="md:col-span-3">

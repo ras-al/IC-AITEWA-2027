@@ -2,8 +2,14 @@ import { tracks } from "@/data/tracks";
 import { CTAButton } from "@/components/ui/CTAButton";
 
 export const metadata = {
-  title: "Technical Tracks | IC-AITEWA 2027",
-  description: "Detailed scope of the five technical tracks for IC-AITEWA 2027.",
+  title: "Technical Tracks | TKM Conference (IC-AITEWA 2027 / AITEWA / AITHWA)",
+  description: "Explore the 5 technical tracks of IC-AITEWA 2027 (TKM Conference / AITEWA / AITHWA): AI & Machine Learning, Sustainable Energy, Water Resources, Intelligent Manufacturing, and Smart Materials.",
+  keywords: [
+    "tkm conference tracks",
+    "aithwa technical tracks",
+    "aitewa conference topics",
+    "ic aitewa tracks",
+  ],
 };
 
 export default function TracksPage() {

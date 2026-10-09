@@ -112,6 +112,8 @@ export const committee = {
     },
   ],
   internationalAdvisoryCommittee: [
+    { name: 'Sri. Jayakrishnan S.', title: 'Chief Executive Officer (Bangalore Complex), Hindustan Aeronautics Limited (HAL), Bengaluru' },
+    { name: 'Dr. Divakar Rakshit', title: 'Indian Institute of Technology Delhi' },
     { name: 'Dr. Mitsuhisa Ichiyanagi', title: 'Sophia University, Japan' },
     { name: 'Dr. K. Pratheesh', title: 'University of Technology and Applied Science, Muscat, Sultanate of Oman' },
     { name: 'Dr. Nibal Fadel Farman Alhialy', title: 'University of Baghdad, Iraq' },
@@ -127,8 +129,6 @@ export const committee = {
     { name: 'Vijay Krishna C. V.', title: 'Marketing Lead, Scale Ireland, Ireland' },
   ],
   nationalAdvisoryCommittee: [
-    { name: 'Sri. Jayakrishnan S.', title: 'Chief Executive Officer (Bangalore Complex), Hindustan Aeronautics Limited (HAL), Bengaluru' },
-    { name: 'Dr. Dibakar Rakshit', title: 'Indian Institute of Technology Delhi' },
     { name: 'Dr. Krishna Anand V. G.', title: 'Ramaiah University of Applied Sciences, Bengaluru' },
     { name: 'Dr. Rajesh Baby', title: "St. Joseph's College of Engineering and Technology, Palai" },
     { name: 'Dr. Ravish G.', title: 'Mythri Aqua Tech, Hyderabad' },
